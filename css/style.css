@@ -1,0 +1,64 @@
+body {
+  background-color: #0cf;
+  padding-bottom: 500px;
+  padding-top: 20px;
+}
+
+h5 .radio form{
+    display: inline;
+}
+
+.alert {
+  position: absolute;
+  top: 50px;
+  left: 20px;
+}
+
+.maps path {
+  stroke: black;
+  stroke-width: 10;
+  fill: grey;
+}
+
+.axis text {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.bar {
+  fill: DarkRed;
+  fill-opacity: .9;
+}
+
+.x.axis path {
+  display: none;
+}
+
+
+body { 
+    padding-top: 65px; 
+}
+
+.invisible{
+    visibility:hidden;
+    display:none;
+}
+
+.visible{
+	display:block;
+}
+
+#tooltip{
+	background-color: rgb(100,100,100);
+	border-radius: 15px;
+	color: white;
+	width:200px;
+	box-shadow:3px 3px #aabbdd;
+	padding: 4px;
+}

@@ -59,7 +59,7 @@ $(document).ready(function() {
         }
 
         data.forEach( function(d) {
-            // bining distance
+            // bining distance TODO: find a better way to bin
             var dist = parseInt(d.DIST);
             if (dist < 10) { dist = dist; }
             else if (dist >= 10 && dist < 15) { dist = 10; }

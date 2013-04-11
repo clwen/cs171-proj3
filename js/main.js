@@ -39,8 +39,8 @@ var fipsToCounty = {
 function getCountyData() {
     d3.csv("data/mit-commuter-data.csv", function(data) {
         // TODO: use key map instead of rollup
-        var countyDataPre = d3.nest().key(function(d){return d.COUNTY;})
-        .rollup(function(d){
+        var countyData = d3.nest().key(function(d){return d.COUNTY;})
+        .rollup( function(d) {
             return {
                 COUNT:d3.sum(d, function(g){return parseInt(g.COUNT);}),
                 AVGDIST:d3.mean(d, function(g){return parseFloat(g.DIST);}),
@@ -72,21 +72,7 @@ function getCountyData() {
                 }),
             };
         })
-        .entries(data);
-        var countyData = {};
-        for(var i in countyDataPre){
-            countyData[countyDataPre[i].key] = {};
-            countyData[countyDataPre[i].key].AVGDIST = countyDataPre[i].values.AVGDIST;
-            countyData[countyDataPre[i].key].MAXDIST = countyDataPre[i].values.MAXDIST;
-            countyData[countyDataPre[i].key].MINDIST = countyDataPre[i].values.MINDIST;
-            countyData[countyDataPre[i].key].COUNT = countyDataPre[i].values.COUNT;
-            countyData[countyDataPre[i].key].WLK = countyDataPre[i].values.WLK;
-            countyData[countyDataPre[i].key].BIC = countyDataPre[i].values.BIC;
-            countyData[countyDataPre[i].key].T = countyDataPre[i].values.T;
-            countyData[countyDataPre[i].key].DRV = countyDataPre[i].values.DRV;
-            countyData[countyDataPre[i].key].CARPOOL = countyDataPre[i].values.CARPOOL;
-            countyData[countyDataPre[i].key].SHT = countyDataPre[i].values.SHT;
-        }
+        .map(data);
 
         maFips.forEach( function(fips, index, array) {
             var county = fipsToCounty[fips];
@@ -194,7 +180,7 @@ function getCountyData() {
     }); // end of d3.csv
 
     $("#county-no-data").hide();
-}
+} // end of getCountyData
 
 $(document).ready( function() {
     getCountyData();

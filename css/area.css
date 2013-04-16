@@ -26,3 +26,15 @@ div.area-tooltip {
   pointer-events: none;
 }
 
+span#area-legend {
+  display: inline-block;
+  border: 1px dotted #666;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+#area-legend .color-card {
+  border: 1px solid #666;
+  margin: 5px;
+  padding: 3px;
+}

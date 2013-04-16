@@ -1,3 +1,12 @@
+var abbrToWord = {
+    "WLK": "Walk", 
+    "BIC": "Bike",
+    "T": "T",
+    "DRV": "Drive",
+    "CARPOOL": "Carpool",
+    "SHT": "Shuttle",
+};
+
 $(document).ready(function() {
     var margin = {top: 20, right: 20, bottom: 30, left: 50},
         width = 1200 - margin.left - margin.right,
@@ -263,6 +272,17 @@ $(document).ready(function() {
             dist_hl.transition()
                 .duration(500)
                 .style("opacity", 0);
+        });
+
+        // add legend 
+        modes_interested.forEach( function(d) {
+            var card_color = color(d);
+            d3.select("#area-legend").append("span")
+                .attr("class", "color-card")
+                .attr("width", 15 + "px")
+                .attr("height", 15 + "px")
+                .style("background-color", card_color)
+                .text(abbrToWord[d]);
         });
     }); // end of d3.csv
 }); // end of document ready

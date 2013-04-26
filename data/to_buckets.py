@@ -9,7 +9,7 @@ if __name__ == "__main__":
     ind_reader = csv.reader(open("confidential.csv"))
     ind_reader.next() # skip header row
     for line in ind_reader:
-        fips = line[-2][:5] # FIPS code
+        fips = line[-2] # FIPS code
         if fips[:2] != '25':
             continue # skip points that are not in Mass. (fips code start by 25)
 
@@ -25,7 +25,7 @@ if __name__ == "__main__":
         elif aff in ['SER', 'SUP']:
             aff = 'SS'
 
-        bkey = fips + aff # bucket key
+        bkey = fips[:5] + aff # bucket key
 
         lng = line[0]
         lat = line[1]

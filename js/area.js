@@ -277,11 +277,14 @@ $(document).ready(function() {
         // add legend 
         modes_interested.forEach( function(d) {
             var card_color = color(d);
+
             d3.select("#area-legend").append("span")
                 .attr("class", "color-card")
-                .attr("width", 15 + "px")
-                .attr("height", 15 + "px")
-                .style("background-color", card_color)
+                .attr("width", 20 + "px")
+                .attr("height", 20 + "px")
+                .style("background-color", card_color);
+
+            d3.select("#area-legend").append("span")
                 .text(abbrToWord[d]);
         });
     }); // end of d3.csv

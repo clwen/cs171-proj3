@@ -34,6 +34,7 @@ span#area-legend {
 }
 
 #area-legend .color-card {
+  display: inline-block;
   border: 1px solid #666;
   margin: 5px;
   padding: 3px;

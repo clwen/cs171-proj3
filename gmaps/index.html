@@ -10,15 +10,20 @@
 
 <body>
 	<div id="panel">
-	  <input onclick="clearOverlays();" type=button value="Hide Overlays">
-	  <input onclick="showOverlays();" type="radio" name="category" id="area" value="AREA">Area
-	  <input onclick="showOverlays();" type="radio" name="category" id="affiliation" value="AFFILIATION">Affiliation
-	  <input onclick = "showOverlays();"type="checkbox" name = "transit" checked> Transit
+		<form id="mapOptions">
+		  <input onclick="document.getElementById('mapOptions').reset(); clearOverlays();" type=button value="Hide Overlays">
+		  <input onclick="showOverlays();" type="radio" name="category" value="AREA">Area
+		  <input onclick="showOverlays();" type="radio" name="category" value="AFFILIATION">Affiliation
+		  <input onclick = "showOverlays();"type="radio" name = "mode" value = "transit"> Public Transit
+		  <input onclick = "showOverlays();"type="radio" name = "mode" value = "bike" > Bike routes
+		</form>
 	</div>
 	  <div id="gmap"></div>
-	  <!--TODO: check off whether to show by affiliation or by area -->
+	  <!--DONE: check off whether to show by affiliation or by area -->
+	  <!--DONE: bike and transit layer overlays -->
+	  <!--TODO: color each affiliation or area group differently .... style markers using colorbrewer-->
+	  <!--TODO: ability to select an affiliation or area ... and get the code to link with other visualizations -->
 	  <!--TODO: add interaction with bar chart and area chart --> 
-	  <!--TODO: bike and transit layer overlays -->
 
 </body>
 

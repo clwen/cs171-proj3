@@ -1,4 +1,4 @@
-var arealayer, afflayer, transitLayer, map;
+var arealayer, afflayer, transitLayer, bikeLayer, map;
 
 function initGMap() {
     var boston_latlng = new google.maps.LatLng(42.37, -71.1);
@@ -36,29 +36,33 @@ function initGMap() {
     });
 
     transitLayer = new google.maps.TransitLayer();
+    bikeLayer = new google.maps.BicyclingLayer();
 }
 
 // Hide the current data overlays
 function clearOverlays() {
-    // TODO: clear the form selections
     arealayer.setMap(null);
     afflayer.setMap(null);
     transitLayer.setMap(null);
+    bikeLayer.setMap(null);
 }
 
 // Show the selected data overlays
 function showOverlays() {
     clearOverlays();
     var cat = $('input[name=category]:checked').val();
-    var transit = $('input[name="transit"]:checked').val();
+    var mode = $('input[name="mode"]:checked').val();
     if(cat == "AREA"){
         arealayer.setMap(map);
     }
     else if (cat == "AFFILIATION"){
         afflayer.setMap(map);   
     }
-    if(transit == "on"){
+    if(mode == "transit"){
         transitLayer.setMap(map);
+    }
+    else if(mode == "bike"){
+        bikeLayer.setMap(map);
     }
 }
 

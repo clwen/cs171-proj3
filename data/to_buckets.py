@@ -14,8 +14,18 @@ if __name__ == "__main__":
             continue # skip points that are not in Mass. (fips code start by 25)
 
         mode = line[5]
-        if mode == "UNK":
+        if mode in ["UNK", "TAX", "HOM"]:
             continue # skip commute type unknown
+        # WLK -> WLK
+        # BIC -> BIC
+        elif mode in ["BIC_PUB", "BIC_DRV_PUB", "DRV_PUB", "WLK_PUB", "CRP_PUB"]:
+            mode = "T"
+        elif mode == "VAN":
+            mode = "SHT"
+        elif mode in ["CRP2", "CRP6", "DRP"]:
+            mode = "CARPOOL"
+        elif mode in ["BIC_DRV", "DRV", "DRV_HOM"]:
+            mode = "DRV"
 
         aff = line[2] # affiliation
         if aff in ['1', '2', '3', '4']:
@@ -35,7 +45,7 @@ if __name__ == "__main__":
         elif area == 'VPIST':
             area = 'IST'
 
-        bkey = fips[:5] + area # bucket key
+        bkey = fips[:5] + mode # bucket key
 
         lng = line[0]
         lat = line[1]
@@ -47,19 +57,20 @@ if __name__ == "__main__":
         else:
             bdic[bkey].append(point)
 
-    bu_writer = csv.writer(open("area_buckets.csv", 'w')) # bucket writer
-    bu_writer.writerow(["Latitude", "Longitude", "Area", "FIPS", "Distance"])
+    bu_writer = csv.writer(open("mode_buckets.csv", 'w')) # bucket writer
+    bu_writer.writerow(["Latitude", "Longitude", "Mode", "FIPS", "Distance"])
     for k, points in bdic.iteritems():
         step = 5
         for i in range(len(points) / step):
-            tps = points[i*step:i*step+5]
+            tps = points[i*step:i*step+5] # temp point set
             ri = random.randint(0, 4) # random index
             lat = tps[ri][0]
             lng = tps[ri][1]
             # aff = tps[ri][2]
-            area = tps[ri][3]
+            # area = tps[ri][3]
+            mode = tps[ri][4]
             fips = tps[ri][-2]
             dist = tps[ri][-1]
-            bucket = [lat, lng, area, fips, dist]
+            bucket = [lat, lng, mode, fips, dist]
             print bucket
             bu_writer.writerow(bucket)

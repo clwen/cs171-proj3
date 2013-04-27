@@ -4,11 +4,22 @@
 <head>
   <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAjD3wP0Wog_xQ2AxYMPiXmLEfpG9mxWAs&sensor=false"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="gmap.css">
   <script src="fusion_table.js"></script>
 </head>
 
 <body>
-  <div id="gmap" style="width:800px;height:600px;"></div>
+	<div id="panel">
+	  <input onclick="clearOverlays();" type=button value="Hide Overlays">
+	  <input onclick="showOverlays();" type="radio" name="category" id="area" value="AREA">Area
+	  <input onclick="showOverlays();" type="radio" name="category" id="affiliation" value="AFFILIATION">Affiliation
+	  <input onclick = "showOverlays();"type="checkbox" name = "transit" checked> Transit
+	</div>
+	  <div id="gmap"></div>
+	  <!--TODO: check off whether to show by affiliation or by area -->
+	  <!--TODO: add interaction with bar chart and area chart --> 
+	  <!--TODO: bike and transit layer overlays -->
+
 </body>
 
 </html>

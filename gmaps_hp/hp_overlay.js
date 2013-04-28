@@ -11,11 +11,10 @@ function initialize() {
     };
 
     var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
     var swBound = new google.maps.LatLng(42.005594, -71.4328231);
     var neBound = new google.maps.LatLng(42.6851936, -70.72580);
     var bounds = new google.maps.LatLngBounds(swBound, neBound);
-
-    // Photograph courtesy of the U.S. Geological Survey
     var srcImage = 'apts_large_rainbow.png';
     overlay = new HPOverlay(bounds, srcImage, map);
 }

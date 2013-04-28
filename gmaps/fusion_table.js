@@ -120,6 +120,7 @@ function initGMap() {
     transitLayer = new google.maps.TransitLayer();
     bikeLayer = new google.maps.BicyclingLayer();
 
+    // construct housing price overlay
     var swBound = new google.maps.LatLng(42.005594, -71.4328231);
     var neBound = new google.maps.LatLng(42.6851936, -70.72580);
     var bounds = new google.maps.LatLngBounds(swBound, neBound);
@@ -127,7 +128,7 @@ function initGMap() {
     housingLayer = new HPOverlay(bounds, srcImage, map);
 }
 
-/** @constructor */
+// housing price overlay constructor
 function HPOverlay(bounds, image, map) {
 
     // Now initialize all properties.
@@ -142,7 +143,7 @@ function HPOverlay(bounds, image, map) {
     this.div_ = null;
 
     // Explicitly call setMap on this overlay
-    this.setMap(map);
+    // this.setMap(map);
 }
 
 HPOverlay.prototype.onAdd = function() {
@@ -199,29 +200,6 @@ HPOverlay.prototype.onRemove = function() {
     this.div_.parentNode.removeChild(this.div_);
 }
 
-// Note that the visibility property must be a string enclosed in quotes
-HPOverlay.prototype.hide = function() {
-    if (this.div_) {
-        this.div_.style.visibility = 'hidden';
-    }
-}
-
-HPOverlay.prototype.show = function() {
-    if (this.div_) {
-        this.div_.style.visibility = 'visible';
-    }
-}
-
-HPOverlay.prototype.toggle = function() {
-    if (this.div_) {
-        if (this.div_.style.visibility == 'hidden') {
-            this.show();
-        } else {
-            this.hide();
-        }
-    }
-}
-
 // Hide the current data overlays
 function clearOverlays() {
     hideLegend();
@@ -230,6 +208,7 @@ function clearOverlays() {
     commutelayer.setMap(null);
     transitLayer.setMap(null);
     bikeLayer.setMap(null);
+    housingLayer.setMap(null);
 }
 
 // Add a legend
@@ -272,6 +251,9 @@ function showOverlays() {
     }
     else if(mode == "bike"){
         bikeLayer.setMap(map);
+    }
+    else if(mode == "housing"){
+        housingLayer.setMap(map);
     }
 }
 

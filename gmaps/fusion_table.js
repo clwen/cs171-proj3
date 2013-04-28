@@ -1,4 +1,4 @@
-var arealayer, afflayer, transitLayer, bikeLayer, map;
+var arealayer, afflayer, commutelayer, transitLayer, bikeLayer, map;
 var areaicons = {
     U:{
         name:'Undergraduate Students',
@@ -87,6 +87,25 @@ function initGMap() {
             }
         }]
     });
+    // COMMUTE TYPE
+    commutelayer = new google.maps.FusionTablesLayer({
+        query: {
+            select: "Latitude",
+            from: "1KaFa7-nBJaPpN-65H63ru2L1pWLfzwOu4XeuqbM",
+        }, 
+        styles:[{
+            markerOptions:{
+                iconName: "small_blue",
+                animation: google.maps.Animation.DROP
+            }
+        },{
+            where: "Mode = 'T'",
+            markerOptions:{
+                iconName: "small_red"
+            }
+        }]
+    });
+
     // AFFILIATION
     afflayer = new google.maps.FusionTablesLayer({
         query: {
@@ -105,6 +124,7 @@ function clearOverlays() {
     hideLegend();
     arealayer.setMap(null);
     afflayer.setMap(null);
+    commutelayer.setMap(null);
     transitLayer.setMap(null);
     bikeLayer.setMap(null);
 }
@@ -122,7 +142,7 @@ function renderLegend(icons){
       legend.appendChild(div);
     }
     legend.className = "visible";
-    map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
+    map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend); // TODO: weirdness of the position when it re-renders, maybe use absolute positioning
 }
 
 function hideLegend(){
@@ -140,6 +160,9 @@ function showOverlays() {
     else if (cat == "AFFILIATION"){
         afflayer.setMap(map);   
         renderLegend(areaicons);
+    }
+    else if(cat == "COMMUTE"){
+        commutelayer.setMap(map);
     }
     if(mode == "transit"){
         transitLayer.setMap(map);

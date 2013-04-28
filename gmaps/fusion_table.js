@@ -1,4 +1,26 @@
 var arealayer, afflayer, transitLayer, bikeLayer, map;
+var areaicons = {
+    U:{
+        name:'Undergraduate Students',
+        icon: 'http://storage.googleapis.com/support-kms-prod/SNP_2752125_en_v0'
+    },
+    G:{
+        name:'Graduate Students',
+        icon: 'http://storage.googleapis.com/support-kms-prod/SNP_2752068_en_v0'
+    },
+    F:{
+        name:'Faculty',
+        icon: 'http://storage.googleapis.com/support-kms-prod/SNP_2752129_en_v0'
+    },
+    A:{
+        name:'Administration',
+        icon: 'http://storage.googleapis.com/support-kms-prod/SNP_2752264_en_v0'
+    },
+    S:{
+        name:'Staff',
+        icon: 'http://storage.googleapis.com/support-kms-prod/SNP_2752063_en_v0'
+    }
+}
 
 function initGMap() {
     var boston_latlng = new google.maps.LatLng(42.37, -71.1);
@@ -9,7 +31,7 @@ function initGMap() {
     };
     map = new google.maps.Map(document.getElementById("gmap") ,mapProp);
 
-    var affstyles = [[{
+    var styles = [[{
             markerOptions:{
                 iconName: "small_yellow",
                 animation: google.maps.Animation.DROP
@@ -27,7 +49,7 @@ function initGMap() {
         },{
             where: "Affiliation = 'FAC'",
             markerOptions:{
-                iconName: "measle_turquoise"
+                iconName: "small_green"
             }
         },{
             where: "Affiliation = 'ADM'",
@@ -46,6 +68,8 @@ function initGMap() {
             }
         }]];
 
+    // Define the data layers
+    // AREA
     arealayer = new google.maps.FusionTablesLayer({
         query: {
             select: "Latitude",
@@ -63,13 +87,13 @@ function initGMap() {
             }
         }]
     });
-
+    // AFFILIATION
     afflayer = new google.maps.FusionTablesLayer({
         query: {
             select: "Latitude",
             from: "1eQqFnqJ2QvYRWPNgqrD-ou06vEXHNCZ7YCAD6-4",
         }, 
-        styles: affstyles[0]
+        styles: styles[0]
     });
 
     transitLayer = new google.maps.TransitLayer();
@@ -78,10 +102,31 @@ function initGMap() {
 
 // Hide the current data overlays
 function clearOverlays() {
+    hideLegend();
     arealayer.setMap(null);
     afflayer.setMap(null);
     transitLayer.setMap(null);
     bikeLayer.setMap(null);
+}
+
+// Add a legend
+function renderLegend(icons){
+    var legend = document.getElementById('legend');
+    legend.innerHTML = '';
+    for (var key in icons) {
+      var type = icons[key];
+      var name = type.name;
+      var icon = type.icon;
+      var div = document.createElement('div');
+      div.innerHTML = '<img src="' + icon + '"> ' + name;
+      legend.appendChild(div);
+    }
+    legend.className = "visible";
+    map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
+}
+
+function hideLegend(){
+    document.getElementById('legend').className="invisible";
 }
 
 // Show the selected data overlays
@@ -94,6 +139,7 @@ function showOverlays() {
     }
     else if (cat == "AFFILIATION"){
         afflayer.setMap(map);   
+        renderLegend(areaicons);
     }
     if(mode == "transit"){
         transitLayer.setMap(map);

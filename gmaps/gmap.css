@@ -8,6 +8,11 @@ html, body {
   height: 100%;
 }
 
+#legend {
+  background: white;
+  padding: 10px;
+}
+
 @media print {
   html, body {
     height: auto;
@@ -27,4 +32,13 @@ html, body {
   background-color: #fff;
   padding: 5px;
   border: 1px solid #999;
+}
+
+.invisible{
+    visibility:hidden;
+    display:none;
+}
+
+.visible{
+  display:block;
 }

@@ -7,8 +7,8 @@ from query_padmapper import MAX_LAT, MAX_LON, MIN_LAT, MIN_LON
 
 # change these to change how detailed the generated image is
 # (1000x1000 is good, but very slow)
-MAX_X = 300
-MAX_Y = 300
+MAX_X = 2000
+MAX_Y = 2000
 
 # at what distance should we stop making predictions?
 IGNORE_DIST = 0.01

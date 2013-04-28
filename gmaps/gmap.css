@@ -13,21 +13,11 @@ html, body {
   padding: 10px;
 }
 
-@media print {
-  html, body {
-    height: auto;
-  }
-
-  #gmap {
-    height: 650px;
-  }
-}
-
 #panel {
   position: absolute;
   top: 5px;
-  left: 50%;
-  margin-left: -180px;
+  left: 20%;
+  margin-left: -90px;
   z-index: 5;
   background-color: #fff;
   padding: 5px;

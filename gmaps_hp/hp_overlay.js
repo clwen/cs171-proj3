@@ -16,7 +16,7 @@ function initialize() {
     var bounds = new google.maps.LatLngBounds(swBound, neBound);
 
     // Photograph courtesy of the U.S. Geological Survey
-    var srcImage = 'apts.png';
+    var srcImage = 'apts_large_rainbow.png';
     overlay = new HPOverlay(bounds, srcImage, map);
 }
 

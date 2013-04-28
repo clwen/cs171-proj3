@@ -61,7 +61,7 @@ function initGMap() {
             markerOptions:{
                 iconName: "measle_grey"
             }
-        },{ /// TODO: for some reason the affiliation styles for SS and AS are messed up (defaulting to yellow)
+        },{ // TODO: for some reason the affiliation styles for SS and AS are messed up (defaulting to yellow)
             where: "Affiliation = 'SS'",
             markerOptions:{
                 iconName: "measle_brown"

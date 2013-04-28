@@ -124,7 +124,7 @@ function initGMap() {
     var swBound = new google.maps.LatLng(42.005594, -71.4328231);
     var neBound = new google.maps.LatLng(42.6851936, -70.72580);
     var bounds = new google.maps.LatLngBounds(swBound, neBound);
-    var srcImage = 'apts_large_rainbow.png';
+    var srcImage = 'apts_large_lumi.png';
     housingLayer = new HPOverlay(bounds, srcImage, map);
 }
 
@@ -172,7 +172,7 @@ HPOverlay.prototype.onAdd = function() {
     // We add an overlay to a map via one of the map's panes.
     // We'll add this overlay to the overlayImage pane.
     var panes = this.getPanes();
-    panes.overlayImage.appendChild(this.div_);
+    panes.mapPane.appendChild(this.div_);
 }
 
 HPOverlay.prototype.draw = function() {

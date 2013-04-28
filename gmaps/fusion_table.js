@@ -9,6 +9,43 @@ function initGMap() {
     };
     map = new google.maps.Map(document.getElementById("gmap") ,mapProp);
 
+    var affstyles = [[{
+            markerOptions:{
+                iconName: "small_yellow",
+                animation: google.maps.Animation.DROP
+            }
+        },{
+            where: "Affiliation = 'U'",
+            markerOptions:{
+                iconName: "small_red"
+            }
+        },{
+            where: "Affiliation = 'G'",
+            markerOptions:{
+                iconName: "small_blue"
+            }
+        },{
+            where: "Affiliation = 'FAC'",
+            markerOptions:{
+                iconName: "measle_turquoise"
+            }
+        },{
+            where: "Affiliation = 'ADM'",
+            markerOptions:{
+                iconName: "small_purple"
+            }
+        },{
+            where: "Affiliation = 'AS'",
+            markerOptions:{
+                iconName: "measle_grey"
+            }
+        },{ /// TODO: for some reason the affiliation styles for SS and AS are messed up (defaulting to yellow)
+            where: "Affiliation = 'SS'",
+            markerOptions:{
+                iconName: "measle_brown"
+            }
+        }]];
+
     arealayer = new google.maps.FusionTablesLayer({
         query: {
             select: "Latitude",
@@ -19,6 +56,11 @@ function initGMap() {
                 iconName: "small_green",
                 animation: google.maps.Animation.DROP
             }
+        },{
+            where: "Area = 'HAS'",
+            markerOptions:{
+                iconName: "small_yellow"
+            }
         }]
     });
 
@@ -27,12 +69,7 @@ function initGMap() {
             select: "Latitude",
             from: "1eQqFnqJ2QvYRWPNgqrD-ou06vEXHNCZ7YCAD6-4",
         }, 
-        styles:[{
-            markerOptions:{
-                iconName: "small_red",
-                animation: google.maps.Animation.DROP
-            }
-        }]
+        styles: affstyles[0]
     });
 
     transitLayer = new google.maps.TransitLayer();

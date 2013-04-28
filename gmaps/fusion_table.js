@@ -130,7 +130,7 @@ function clearOverlays() {
 }
 
 // Add a legend
-function renderLegend(icons){
+function renderLegend(icons){ // TODO: make legend flexible for area, affiliation and commute type color encodings
     var legend = document.getElementById('legend');
     legend.innerHTML = '';
     for (var key in icons) {

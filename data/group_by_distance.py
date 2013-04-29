@@ -12,7 +12,7 @@ if __name__ == "__main__":
     conf_reader.next() # skip header row
     for line in conf_reader:
         dist = int(float(line[-1]))
-        if dist > 104:
+        if dist > 10:
             continue # skip data points 
         # bin the range [80, 104] in 5
         if dist >= 80 and dist < 85:
@@ -52,7 +52,8 @@ if __name__ == "__main__":
     grp_writer = csv.writer(open("dist_grouped.csv", 'w'))
     modes = ["WLK", "BIC", "T", "DRV", "CARPOOL"]
     grp_writer.writerow(["Distance"] + modes + ["Total"]) # write header row
-    for d in range(81) + [85, 90, 95, 100]:
+    for d in range(11):
+    # for d in range(81) + [85, 90, 95, 100]:
         counts = []
         total = 0
         for mode in modes:

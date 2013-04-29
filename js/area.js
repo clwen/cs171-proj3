@@ -167,6 +167,8 @@ $(document).ready(function() {
             };
         }));
 
+        console.log(modes);
+
         x.domain(d3.extent(data_per, function(d) { return d.dist; }));
 
         var mode = svg.selectAll(".mode")
@@ -272,6 +274,12 @@ $(document).ready(function() {
             dist_hl.transition()
                 .duration(500)
                 .style("opacity", 0);
+        });
+
+        // toggle between raw number and percentage
+        $('input:radio[name=repr]').click(function() {
+            var mode = $('input:radio[name=repr]:checked').val();
+            console.log(mode);
         });
 
         // add legend 

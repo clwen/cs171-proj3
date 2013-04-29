@@ -39,3 +39,7 @@ span#area-legend {
   margin: 5px;
   padding: 3px;
 }
+
+#area-toggle input {
+  margin: 5px;
+}

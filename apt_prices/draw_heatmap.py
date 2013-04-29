@@ -111,23 +111,23 @@ def color(val):
         return (255,255,255,0)
 
     if val > 1800:
-        return (103, 0, 13) 
+        return (73, 0, 106) 
     elif val > 1700:
-        return (165, 15, 21)
+        return (122, 1, 119)
     elif val > 1600:
-        return (203, 24, 29)
+        return (174, 1, 126)
     elif val > 1500:
-        return (239, 59, 44)
+        return (221, 52, 151)
     elif val > 1400:
-        return (251, 106, 74)
+        return (247, 104, 161)
     elif val > 1300:
-        return (252, 146, 114)
+        return (250, 159, 181)
     elif val > 1200:
-        return (252, 187, 161)
+        return (252, 197, 192)
     elif val > 1100:
-        return (254, 224, 210)
+        return (253, 224, 221)
     else:
-        return (255, 245, 240)
+        return (255, 247, 243)
 
 def inverted_distance_weighted_average(prices, lat, lon):
     num = 0

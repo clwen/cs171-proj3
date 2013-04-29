@@ -1,5 +1,5 @@
-var arealayer, afflayer, commutelayer, transitLayer, bikeLayer, housingLayer, map;
-var areaicons = {
+var afflayer, commutelayer, transitLayer, bikeLayer, housingLayer, map;
+var afficons = {
     U:{
         name:'Undergraduate Students',
         icon: 'http://storage.googleapis.com/support-kms-prod/SNP_2752125_en_v0'
@@ -34,9 +34,9 @@ function initGMap() {
     map = new google.maps.Map(document.getElementById("gmap") ,mapProp);
 
     var styles = [[{
+            where: "Affiliation = 'AS' or Affiliation = 'SS'",
             markerOptions:{
                 iconName: "small_yellow",
-                animation: google.maps.Animation.DROP
             }
         },{
             where: "Affiliation = 'U'",
@@ -58,37 +58,9 @@ function initGMap() {
             markerOptions:{
                 iconName: "small_purple"
             }
-        },{
-            where: "Affiliation = 'AS'",
-            markerOptions:{
-                iconName: "measle_grey"
-            }
-        },{ // TODO: for some reason the affiliation styles for SS and AS are messed up (defaulting to yellow)
-            where: "Affiliation = 'SS'",
-            markerOptions:{
-                iconName: "measle_brown"
-            }
         }]];
 
     // Define the data layers
-    // AREA
-    arealayer = new google.maps.FusionTablesLayer({
-        query: {
-            select: "Latitude",
-            from: "1Qo9SLRIPdSb0EQ3hZkmhZ3zwFliDZFJBlq-Lr7I",
-        }, 
-        styles:[{
-            markerOptions:{
-                iconName: "small_green",
-                animation: google.maps.Animation.DROP
-            }
-        },{
-            where: "Area = 'HAS'",
-            markerOptions:{
-                iconName: "small_yellow"
-            }
-        }]
-    });
     // COMMUTE TYPE
     commutelayer = new google.maps.FusionTablesLayer({
         query: {
@@ -126,6 +98,19 @@ function initGMap() {
     var bounds = new google.maps.LatLngBounds(swBound, neBound);
     var srcImage = 'apts_large_lumi.png';
     housingLayer = new HPOverlay(bounds, srcImage, map);
+
+    // add event listeners
+    // google map event listener (i.e. click anywhere on the map to refresh and reset the selection)
+    google.maps.event.addListener(map, 'click', function(event) {
+        showOverlays();
+        map.panTo(event.latLng);
+    });
+    // google fusion table layers event listeners
+    google.maps.event.addListener(afflayer, 'click', function(event) {
+        console.log(event.row.Affiliation.value);
+        // TODO: select only those points from the same group
+        map.panTo(event.latLng);
+    });
 }
 
 // housing price overlay constructor
@@ -203,7 +188,6 @@ HPOverlay.prototype.onRemove = function() {
 // Hide the current data overlays
 function clearOverlays() {
     hideLegend();
-    arealayer.setMap(null);
     afflayer.setMap(null);
     commutelayer.setMap(null);
     transitLayer.setMap(null);
@@ -214,7 +198,7 @@ function clearOverlays() {
 // Add a legend
 function renderLegend(icons){ // TODO: make legend flexible for area, affiliation and commute type color encodings
     var legend = document.getElementById('legend');
-    legend.innerHTML = '';
+    legend.innerHTML = '<b>Legend</b><br>(Each dot represents 5 people)';
     for (var key in icons) {
       var type = icons[key];
       var name = type.name;
@@ -236,12 +220,9 @@ function showOverlays() {
     clearOverlays();
     var cat = $('input[name=category]:checked').val();
     var mode = $('input[name="mode"]:checked').val();
-    if(cat == "AREA"){
-        arealayer.setMap(map);
-    }
-    else if (cat == "AFFILIATION"){
+    if (cat == "AFFILIATION"){
         afflayer.setMap(map);   
-        renderLegend(areaicons);
+        renderLegend(afficons);
     }
     else if(cat == "COMMUTE"){
         commutelayer.setMap(map);

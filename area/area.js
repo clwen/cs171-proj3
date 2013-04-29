@@ -158,6 +158,19 @@ var show_number = function() {
 };
 
 $(document).ready(function() {
-    // show_percentage();
-    show_number();
+    // toggle between raw number and percentage
+    $('input:radio[name=repr]').click(function() {
+        var mode = $('input:radio[name=repr]:checked').val();
+        if (mode === "percentage") {
+            d3.select("svg")
+                .remove();
+            show_percentage();
+        } else if (mode === "number") {
+            d3.select("svg")
+                .remove();
+            show_number();
+        }
+    });
+
+    show_percentage();
 }); // end of document.ready

@@ -48,6 +48,7 @@ $(document).ready(function() {
 
     d3.csv("data/dist_grouped.csv", function(data) {
         color.domain(d3.keys(data[0]).filter(function(key) { return key !== "Distance" && key !== "Total"; }));
+        console.log(color.domain());
 
         data.forEach(function(d) {
             d.Distance = +d.Distance;
@@ -68,14 +69,14 @@ $(document).ready(function() {
             };
         }));
 
-        console.log(modes);
+        // console.log(modes);
 
         x.domain(d3.extent(data, function(d) { return d.dist; }));
 
-        var mode = svg.selectAll(".mode")
-            .data(modes)
-            .enter().append("g")
-            .attr("class", "mode");
+        // var mode = svg.selectAll(".mode")
+        //     .data(modes)
+        //     .enter().append("g")
+        //     .attr("class", "mode");
 
         // mode.append("path")
         //     .attr("id", function(d) {return d.name;})

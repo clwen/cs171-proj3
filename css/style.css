@@ -2,6 +2,15 @@ body {
   background:#fff url('../img/linen.png') repeat;
   padding-bottom: 500px;
   padding-top: 20px;
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  text-transform: none;
+  text-decoration: none;
+  letter-spacing: 0em;
+  word-spacing: 0em;
+  line-height: 1.4;
 }
 
 h5 .radio form{
@@ -20,11 +29,19 @@ h5 .radio form{
   fill: grey;
 }
 
+.group-label {
+  font-weight: bold;
+  text-anchor: end;
+}
+
 .axis text {
   font: 10px sans-serif;
 }
 
-.axis path,
+.axis path {
+  display: none;
+}
+
 .axis line {
   fill: none;
   stroke: #000;
@@ -61,4 +78,5 @@ body {
 	width:200px;
 	box-shadow:3px 3px #aabbdd;
 	padding: 4px;
+  z-index:9999999;
 }

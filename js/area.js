@@ -10,7 +10,7 @@ var abbrToWord = {
 $(document).ready(function() {
     var margin = {top: 20, right: 20, bottom: 30, left: 50},
         width = 1200 - margin.left - margin.right,
-        height = 275 - margin.top - margin.bottom;
+        height = 200 - margin.top - margin.bottom;
 
     var parseDate = d3.time.format("%y-%b-%d").parse,
         formatPercent = d3.format(".0%");

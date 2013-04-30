@@ -1,7 +1,6 @@
 html, body{
   background:#fff url('../img/linen.png') repeat;
   padding-bottom: 500px;
-  padding-top: 20px;
   font-family: 'Open Sans', sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -11,6 +10,33 @@ html, body{
   letter-spacing: 0em;
   word-spacing: 0em;
   line-height: 1.4;
+}
+
+form{
+  margin-bottom: 0px;
+}
+
+.container{
+  width: 1200px;
+}
+
+.well{ /* needs more styling */
+  color: #993333;
+}
+
+.navbar{
+  background-color: #993333;
+  color: #ffffff;
+}
+
+h1, h2, h3 {
+  font-family: 'Open Sans', sans-serif;
+}
+
+@media (min-width: 768px) { 
+  .sb-fixed{
+    position: fixed;
+  } 
 }
 
 .nav{
@@ -72,11 +98,6 @@ h5 .radio form{
   display: none;
 }
 
-
-body { 
-    padding-top: 65px; 
-}
-
 .invisible{
     visibility:hidden;
     display:none;
@@ -118,7 +139,7 @@ body {
 }
 
 #panel {
-  position: absolute;
+  position: relative;
   top: 5px;
   left: 20%;
   margin-left: -90px;

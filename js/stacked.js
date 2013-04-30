@@ -1,6 +1,21 @@
 // STACKED to MULTIPLES BARCHART
+
+var affcolors = ['#ff99ff', '#9999ff', '#ff99ff', '#ff6666','#9999ff', '#99ff99'];
+var comcolors = ['#99ff99', '#ff6666', '#ff99ff', '#ffff99', '#9999ff'];
+
 function renderBarchart(datatype){
   d3.select("#barchart").remove();
+  var buckets = $('input[name=bucket]:checked').val();
+  var datafile = "data/commutes-by-area.csv";
+  var color;
+  if(buckets == 'Affiliation'){
+    datafile = "data/commutes-by-area-aff.csv";
+    color = affcolors;
+  }
+  else if(buckets == 'Commute'){
+    datafile = "data/commutes-by-area-mode.csv";
+    color = comcolors;
+  }
   if(datatype == "count"){
     var margin = {top: 10, right: 40, bottom: 20, left: 60},
       width = 520 - margin.left - margin.right,
@@ -27,15 +42,13 @@ function renderBarchart(datatype){
         .y(function(d) { return d.COUNT; })
         .out(function(d, y0) { d.valueOffset = y0; });
 
-    var color = d3.scale.category20();
-
     var svg = d3.select("#bar").append("svg").attr("id", "barchart")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
       .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    d3.csv("data/commutes-by-area.csv", function(error, data) {
+    d3.csv(datafile, function(error, data) {
       // Notes about the data:
       // Changing the SORT ORDER of the spreadsheet changes the chart from raw # to COUNTages
       // changing the "group" number changes the color scheme
@@ -67,7 +80,7 @@ function renderBarchart(datatype){
       group.selectAll("rect")
           .data(function(d) { return d.values; })
         .enter().append("rect")
-          .style("fill", function(d) { return color(d.group); })
+          .style("fill", function(d) { return color[d.group-1]; })
           .attr("x", function(d) { return x(d.AFFILIATION); })
           .attr("y", function(d) { return y1(d.COUNT); })
           .attr("width", x.rangeBand())
@@ -145,15 +158,13 @@ function renderBarchart(datatype){
         .y(function(d) { return d.PERCENT; })
         .out(function(d, y0) { d.valueOffset = y0; });
 
-    var color = d3.scale.category20();
-
     var svg = d3.select("#bar").append("svg").attr("id", "barchart")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
       .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    d3.csv("data/commutes-by-area.csv", function(error, data) {
+    d3.csv(datafile, function(error, data) {
       // Notes about the data:
       // Changing the SORT ORDER of the spreadsheet changes the chart from raw # to COUNTages
       // changing the "group" number changes the color scheme
@@ -185,7 +196,7 @@ function renderBarchart(datatype){
       group.selectAll("rect")
           .data(function(d) { return d.values; })
         .enter().append("rect")
-          .style("fill", function(d) { return color(d.group); })
+          .style("fill", function(d) { return color[d.group-1]; })
           .attr("x", function(d) { return x(d.AFFILIATION); })
           .attr("y", function(d) { return y1(d.PERCENT); })
           .attr("width", x.rangeBand())

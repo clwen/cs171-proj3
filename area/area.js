@@ -5,7 +5,16 @@ var abbrToWord = {
     "DRV": "Drive",
     "CARPOOL": "Carpool",
 };
+
 var modesUsed = ["WLK", "BIC", "T", "DRV", "CARPOOL"];
+
+var comColors = {
+    "WLK": "#9f9",
+    "T": "#ff9",
+    "BIC": "#f9f",
+    "DRV": "#f66",
+    "CARPOOL": "#99f",
+};
 
 var margin = {top: 20, right: 20, bottom: 30, left: 60},
     width = 960 - margin.left - margin.right,
@@ -73,7 +82,7 @@ var show_percentage = function() {
             .attr("id", function(d) { return d.name })
             .attr("class", "area")
             .attr("d", function(d) { return area(d.values); })
-            .style("fill", function(d) { return color(d.name); });
+            .style("fill", function(d) { return comColors[d.name]; });
 
         svg.append("g")
             .attr("class", "x axis")
@@ -111,7 +120,7 @@ var show_percentage = function() {
         });
 
         $(".area").mouseout(function() {
-            $(this).css("fill", color($(this).attr("id")));
+            $(this).css("fill", comColors[$(this).attr("id")]);
 
             div.transition()
                 .duration(500)
@@ -181,7 +190,7 @@ var show_number = function() {
             .attr("id", function(d) { return d.name })
             .attr("class", "area")
             .attr("d", function(d) { return area(d.values); })
-            .style("fill", function(d) { return color(d.name); });
+            .style("fill", function(d) { return comColors[d.name]; });
 
         svg.append("g")
             .attr("class", "x axis")
@@ -219,7 +228,7 @@ var show_number = function() {
         });
 
         $(".area").mouseout(function() {
-            $(this).css("fill", color($(this).attr("id")));
+            $(this).css("fill", comColors[$(this).attr("id")]);
 
             div.transition()
                 .duration(500)
@@ -246,7 +255,7 @@ $(document).ready(function() {
     show_percentage();
 
     modesUsed.forEach( function(d) {
-        var card_color = color(d);
+        var card_color = comColors[d];
 
         d3.select("#area-legend").append("span")
             .attr("class", "color-card")

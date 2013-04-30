@@ -1,10 +1,9 @@
-var show_percentage = function() {
-    var margin = {top: 20, right: 20, bottom: 30, left: 50},
-        width = 960 - margin.left - margin.right,
-        height = 500 - margin.top - margin.bottom;
+var margin = {top: 20, right: 20, bottom: 30, left: 60},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
 
-    var parseDate = d3.time.format("%y-%b-%d").parse,
-        formatPercent = d3.format(".0%");
+var show_percentage = function() {
+    var formatPercent = d3.format(".0%");
 
     var x = d3.scale.linear()
         .range([0, width]);
@@ -69,7 +68,13 @@ var show_percentage = function() {
         svg.append("g")
             .attr("class", "x axis")
             .attr("transform", "translate(0," + height + ")")
-            .call(xAxis);
+            .call(xAxis)
+            .append("text")
+            .attr("class", "label")
+            .attr("x", width)
+            .attr("y", "-6")
+            .style("text-anchor", "end")
+            .text("Distance (km)");
 
         svg.append("g")
             .attr("class", "y axis")
@@ -78,12 +83,7 @@ var show_percentage = function() {
 };
 
 var show_number = function() {
-    var margin = {top: 20, right: 20, bottom: 30, left: 50},
-        width = 960 - margin.left - margin.right,
-        height = 500 - margin.top - margin.bottom;
-
-    var parseDate = d3.time.format("%y-%b-%d").parse,
-        formatPercent = d3.format(".0%");
+    var formatInt = d3.format("d");
 
     var x = d3.scale.linear()
         .range([0, width]);
@@ -100,7 +100,7 @@ var show_number = function() {
     var yAxis = d3.svg.axis()
         .scale(y)
         .orient("left")
-        .tickFormat(formatPercent);
+        .tickFormat(formatInt);
 
     var area = d3.svg.area()
         .x(function(d) { return x(d.dist); })
@@ -149,7 +149,13 @@ var show_number = function() {
         svg.append("g")
             .attr("class", "x axis")
             .attr("transform", "translate(0," + height + ")")
-            .call(xAxis);
+            .call(xAxis)
+            .append("text")
+            .attr("class", "label")
+            .attr("x", width)
+            .attr("y", "-6")
+            .style("text-anchor", "end")
+            .text("Distance (km)");
 
         svg.append("g")
             .attr("class", "y axis")

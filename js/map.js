@@ -143,22 +143,24 @@ function initGMap() {
     var swBound = new google.maps.LatLng(42.005594, -71.4328231);
     var neBound = new google.maps.LatLng(42.6851936, -70.72580);
     var bounds = new google.maps.LatLngBounds(swBound, neBound);
-    var srcImage = 'apts_large_lumi.png';
+    var srcImage = 'img/apts_large_lumi.png';
     housingLayer = new HPOverlay(bounds, srcImage, map);
 
     // add event listeners
     // google map event listener (i.e. click anywhere on the map to refresh and reset the selection)
-    google.maps.event.addListener(map, 'click', function(event) {
+    google.maps.event.addListener(map, 'click', function(event) { // is mousemove or click better here??
         showOverlays();
         clearFilter();
     });
     // google fusion table layers event listeners
     google.maps.event.addListener(afflayer, 'click', function(event) {
         filterMap(event.row.Affiliation.value, "Affiliation");
+        //TODO - highlight in barchar
     });
 
     google.maps.event.addListener(commutelayer, 'click', function(event) {
         filterMap(event.row.Mode.value, "Mode");
+        //TODO - highlight in barchart
     });
 
     // push the legend div to the map

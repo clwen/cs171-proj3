@@ -80,3 +80,23 @@ body {
 	padding: 4px;
   z-index:9999999;
 }
+
+#gmap {
+  height: 100%;
+}
+
+#legend {
+  background: white;
+  padding: 10px;
+}
+
+#panel {
+  position: absolute;
+  top: 5px;
+  left: 20%;
+  margin-left: -90px;
+  z-index: 5;
+  background-color: #fff;
+  padding: 5px;
+  border: 1px solid #999;
+}

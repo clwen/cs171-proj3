@@ -4,8 +4,15 @@
 <head>
   <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAjD3wP0Wog_xQ2AxYMPiXmLEfpG9mxWAs&sensor=false"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="gmap.css">
-  <script src="fusion_table.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script src="js/map.js"></script>
+  <style>
+	  html, body {
+		  height: 100%;
+		  margin: 0;
+		  padding: 0;
+		}
+  </style>
 </head>
 
 <body>
@@ -19,8 +26,8 @@
 		  <input onclick="showOverlays(); "type="radio" name="mode" value="housing">Housing Price
 		</form>
 	</div>
-	  <div id="gmap"></div>
-	  <div id="legend"></div>
+	<div id="gmap"></div>
+	<div id="legend"></div>
 	  <!--TODO: legend for housing price layer --> 
 	  <!--TODO: ability to select an affiliation or area ... and get the code to link with other visualizations 
 		use Google Maps event listener https://developers.google.com/maps/documentation/javascript/events -->

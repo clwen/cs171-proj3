@@ -85,7 +85,7 @@ function renderBarchart(datatype){
           .attr("y", function(d) { return y1(d.COUNT); })
           .attr("width", x.rangeBand())
           .attr("height", function(d) { return y0.rangeBand() - y1(d.COUNT); })
-          .attr("class", function(d){return d.AFFILIATION}); 
+          .attr("class", function(d){return d.AFFILIATION_CODE}); 
 
       // TOOLTIP
       d3.selectAll("rect")

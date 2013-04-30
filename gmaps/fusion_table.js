@@ -1,4 +1,4 @@
-var afflayer, commutelayer, transitLayer, bikeLayer, housingLayer, map;
+var afflayer, commutelayer, transitLayer, bikeLayer, housingLayer, map, legend;
 var afficons = {
     U:{
         name:'Undergraduate Students',
@@ -18,6 +18,28 @@ var afficons = {
     },
     S:{
         name:'Staff',
+        icon: 'http://storage.googleapis.com/support-kms-prod/SNP_2752063_en_v0'
+    }
+}
+var comicons = {
+    DRV:{
+        name:'Drive',
+        icon: 'http://storage.googleapis.com/support-kms-prod/SNP_2752125_en_v0'
+    },
+    CARPOOL:{
+        name:'Carpool',
+        icon: 'http://storage.googleapis.com/support-kms-prod/SNP_2752068_en_v0'
+    },
+    WLK:{
+        name:'Walk',
+        icon: 'http://storage.googleapis.com/support-kms-prod/SNP_2752129_en_v0'
+    },
+    BIC:{
+        name:'Bike',
+        icon: 'http://storage.googleapis.com/support-kms-prod/SNP_2752264_en_v0'
+    },
+    T:{
+        name:'Public Transit',
         icon: 'http://storage.googleapis.com/support-kms-prod/SNP_2752063_en_v0'
     }
 }
@@ -58,7 +80,33 @@ function initGMap() {
             markerOptions:{
                 iconName: "small_purple"
             }
-        }]];
+        }], [{
+            where: "Mode = 'T'",
+            markerOptions:{
+                iconName: "small_yellow",
+            }
+        },{
+            where: "Mode = 'DRV'",
+            markerOptions:{
+                iconName: "small_red"
+            }
+        },{
+            where: "Mode = 'CARPOOL'",
+            markerOptions:{
+                iconName: "small_blue"
+            }
+        },{
+            where: "Mode = 'WLK'",
+            markerOptions:{
+                iconName: "small_green"
+            }
+        },{
+            where: "Mode = 'BIC'",
+            markerOptions:{
+                iconName: "small_purple"
+            }
+        }]
+        ];
 
     // Define the data layers
     // COMMUTE TYPE
@@ -67,17 +115,7 @@ function initGMap() {
             select: "Latitude",
             from: "1KaFa7-nBJaPpN-65H63ru2L1pWLfzwOu4XeuqbM",
         }, 
-        styles:[{
-            markerOptions:{
-                iconName: "small_blue",
-                animation: google.maps.Animation.DROP
-            }
-        },{
-            where: "Mode = 'T'",
-            markerOptions:{
-                iconName: "small_red"
-            }
-        }]
+        styles: styles[1]
     });
 
     // AFFILIATION
@@ -108,9 +146,14 @@ function initGMap() {
     // google fusion table layers event listeners
     google.maps.event.addListener(afflayer, 'click', function(event) {
         console.log(event.row.Affiliation.value);
+        console.log(event.row);
         // TODO: select only those points from the same group
         map.panTo(event.latLng);
     });
+
+    // push the legend div to the map
+    legend = document.getElementById('legend');
+    map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend); 
 }
 
 // housing price overlay constructor
@@ -197,7 +240,6 @@ function clearOverlays() {
 
 // Add a legend
 function renderLegend(icons){ // TODO: make legend flexible for area, affiliation and commute type color encodings
-    var legend = document.getElementById('legend');
     legend.innerHTML = '<b>Legend</b><br>(Each dot represents 5 people)';
     for (var key in icons) {
       var type = icons[key];
@@ -208,11 +250,19 @@ function renderLegend(icons){ // TODO: make legend flexible for area, affiliatio
       legend.appendChild(div);
     }
     legend.className = "visible";
-    map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend); // TODO: weirdness of the position when it re-renders, maybe use absolute positioning
+    // TODO: weirdness of the position when it re-renders, maybe use absolute positioning
+}
+
+function showLegend(){
+    document.getElementById('legend').className="visible";
 }
 
 function hideLegend(){
     document.getElementById('legend').className="invisible";
+}
+
+function filterMap(){
+    // TODO: select an affiliation or commute mode on the map - filter the map view to only the group of points and interact with other viz
 }
 
 // Show the selected data overlays
@@ -226,6 +276,7 @@ function showOverlays() {
     }
     else if(cat == "COMMUTE"){
         commutelayer.setMap(map);
+        renderLegend(comicons);
     }
     if(mode == "transit"){
         transitLayer.setMap(map);

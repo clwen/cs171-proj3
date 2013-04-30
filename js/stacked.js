@@ -1,6 +1,6 @@
 // STACKED to MULTIPLES BARCHART
 
-var affcolors = ['#ff99ff', '#9999ff', '#ff99ff', '#ff6666','#9999ff', '#99ff99'];
+var affcolors = ['#ff99ff', '#ffff99', '#99ff99', '#9999ff','#ffff99', '#ff6666'];
 var comcolors = ['#99ff99', '#ff6666', '#ff99ff', '#ffff99', '#9999ff'];
 
 function renderBarchart(datatype){

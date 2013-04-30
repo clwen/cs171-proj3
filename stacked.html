@@ -39,8 +39,8 @@
     <form onclick="document.getElementById('barmode').reset(); 
                   type = $('input[name=datatype]:checked').val();
                   renderBarchart(type);"> Show data as: 
-      <label><input type="radio" name="datatype" value="count" checked> Count </label>
-      <label><input type="radio" name="datatype" value="percent"> Percentage </label>
+      <input type="radio" name="datatype" value="count" checked> Count
+      <input type="radio" name="datatype" value="percent"> Percentage 
     </form>
     <div id="bar"></div>
     <div id="tooltip" class="invisible"></div>

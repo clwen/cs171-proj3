@@ -127,15 +127,6 @@ function initGMap() {
         styles: styles[0]
     });
 
-    // filteredLayer = new google.maps.FusionTablesLayer({
-    //     query: {
-    //         select: "Latitude",
-    //         from: "1eQqFnqJ2QvYRWPNgqrD-ou06vEXHNCZ7YCAD6-4",
-    //         where: "Affiliation = 'U'"
-    //     }, 
-    //     styles: styles[0]
-    // });
-
     transitLayer = new google.maps.TransitLayer();
     bikeLayer = new google.maps.BicyclingLayer();
 

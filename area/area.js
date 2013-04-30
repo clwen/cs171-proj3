@@ -1,6 +1,17 @@
+var abbrToWord = {
+    "WLK": "Walk", 
+    "BIC": "Bike",
+    "T": "T",
+    "DRV": "Drive",
+    "CARPOOL": "Carpool",
+};
+var modesUsed = ["WLK", "BIC", "T", "DRV", "CARPOOL"];
+
 var margin = {top: 20, right: 20, bottom: 30, left: 60},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
+
+var color = d3.scale.category20();
 
 var show_percentage = function() {
     var formatPercent = d3.format(".0%");
@@ -10,8 +21,6 @@ var show_percentage = function() {
 
     var y = d3.scale.linear()
         .range([height, 0]);
-
-    var color = d3.scale.category20();
 
     var xAxis = d3.svg.axis()
         .scale(x)
@@ -30,7 +39,7 @@ var show_percentage = function() {
     var stack = d3.layout.stack()
         .values(function(d) { return d.values; });
 
-    var svg = d3.select("body").append("svg")
+    var svg = d3.select("#area-chart").append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
@@ -61,6 +70,7 @@ var show_percentage = function() {
         .attr("class", "mode");
 
         mode.append("path")
+            .attr("id", function(d) { return d.name })
             .attr("class", "area")
             .attr("d", function(d) { return area(d.values); })
             .style("fill", function(d) { return color(d.name); });
@@ -79,6 +89,15 @@ var show_percentage = function() {
         svg.append("g")
             .attr("class", "y axis")
             .call(yAxis);
+
+        $(".area").mouseover(function() {
+            $(this).css("fill", "#ecc");
+        });
+
+        $(".area").mouseout(function() {
+            $(this).css("fill", color($(this).attr("id")));
+        });
+
     }); // end of d3.csv
 };
 
@@ -90,8 +109,6 @@ var show_number = function() {
 
     var y = d3.scale.linear()
         .range([height, 0]);
-
-    var color = d3.scale.category20();
 
     var xAxis = d3.svg.axis()
         .scale(x)
@@ -110,7 +127,7 @@ var show_number = function() {
     var stack = d3.layout.stack()
         .values(function(d) { return d.values; });
 
-    var svg = d3.select("body").append("svg")
+    var svg = d3.select("#area-chart").append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
@@ -142,6 +159,7 @@ var show_number = function() {
         .attr("class", "mode");
 
         mode.append("path")
+            .attr("id", function(d) { return d.name })
             .attr("class", "area")
             .attr("d", function(d) { return area(d.values); })
             .style("fill", function(d) { return color(d.name); });
@@ -160,6 +178,14 @@ var show_number = function() {
         svg.append("g")
             .attr("class", "y axis")
             .call(yAxis);
+
+        $(".area").mouseover(function() {
+            $(this).css("fill", "#ecc");
+        });
+
+        $(".area").mouseout(function() {
+            $(this).css("fill", color($(this).attr("id")));
+        });
     }); // end of d3.csv
 };
 
@@ -179,4 +205,17 @@ $(document).ready(function() {
     });
 
     show_percentage();
+
+    modesUsed.forEach( function(d) {
+        var card_color = color(d);
+
+        d3.select("#area-legend").append("span")
+            .attr("class", "color-card")
+            .attr("width", 20 + "px")
+            .attr("height", 20 + "px")
+            .style("background-color", card_color);
+
+        d3.select("#area-legend").append("span")
+            .text(abbrToWord[d]);
+    });
 }); // end of document.ready

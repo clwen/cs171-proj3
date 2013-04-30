@@ -68,7 +68,13 @@ var show_percentage = function() {
         svg.append("g")
             .attr("class", "x axis")
             .attr("transform", "translate(0," + height + ")")
-            .call(xAxis);
+            .call(xAxis)
+            .append("text")
+            .attr("class", "label")
+            .attr("x", width)
+            .attr("y", "-6")
+            .style("text-anchor", "end")
+            .text("Distance (km)");
 
         svg.append("g")
             .attr("class", "y axis")
@@ -143,7 +149,13 @@ var show_number = function() {
         svg.append("g")
             .attr("class", "x axis")
             .attr("transform", "translate(0," + height + ")")
-            .call(xAxis);
+            .call(xAxis)
+            .append("text")
+            .attr("class", "label")
+            .attr("x", width)
+            .attr("y", "-6")
+            .style("text-anchor", "end")
+            .text("Distance (km)");
 
         svg.append("g")
             .attr("class", "y axis")

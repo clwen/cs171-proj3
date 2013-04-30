@@ -1,4 +1,4 @@
-body {
+html, body{
   background:#fff url('../img/linen.png') repeat;
   padding-bottom: 500px;
   padding-top: 20px;
@@ -11,6 +11,21 @@ body {
   letter-spacing: 0em;
   word-spacing: 0em;
   line-height: 1.4;
+}
+
+.nav{
+  font-size: 15px;
+  color: #666666;
+}
+
+.sectiontitle{
+  background-color: #993333;
+  color: #ffffff;
+  font-family: 'Lato', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  padding: 5px;
 }
 
 h5 .radio form{

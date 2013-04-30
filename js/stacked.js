@@ -226,7 +226,7 @@ function renderBarchart(datatype){
           .attr("transform", "translate(0," + y0.rangeBand() + ")")
           .call(xAxis);
 
-      d3.selectAll("input").on("change", change);
+      d3.selectAll("#barmode").on("change", change);
 
       function change() {
         if (this.value === "multiples") transitionMultiples();

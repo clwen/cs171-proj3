@@ -8,21 +8,32 @@
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/stacked.js"></script>
     <script type="text/javascript" src="js/area.js"></script>
-
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/area.css">
-    <link href='http://fonts.googleapis.com/css?family=Lato|Economica|Open+Sans' rel='stylesheet' type='text/css'>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <script src="js/bootstrap.min.js"></script>
+    <!-- Custom CSS -->
+    <link href='http://fonts.googleapis.com/css?family=Lato|Economica|Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!--link rel="stylesheet" type="text/css" href="css/area.css"-->
     
 
   </head>
   <body>
     <div class="container-fluid" id="dashboard">
-      <div class="navbar navbar-fixed-top">
+      <div class="pagination"><!--use this for storytelling-->
+        <ul>
+          <li><a href="#">Prev</a></li>
+          <li><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li><a href="#">5</a></li>
+          <li><a href="#">Next</a></li>
+        </ul>
+      </div>
+      <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-inner">
               <div class="container-fluid">
                 <a class="brand" href="#">MIT Commuters</a>
@@ -39,14 +50,16 @@
       <div class="row-fluid">
       <div class="span12">
         <div class="maps span7">
-          <b>Geographic distribution of MIT affiliates within Massachusetts</b>
+          <div class = "sectiontitle"><b>Geographic distribution of MIT affiliates within Massachusetts</b></div>
           <!-- width="892.6" height="545.8"  -->
           
         </div>
+
+        <!-- SMALL MULTIPLES BARCHART --> 
         <div class="span5">
           <div class="row-fluid">
             <div class="span12">
-              <b>Demographic Details by Area or Affiliation</b><br/>
+              <div class = "sectiontitle"><b>Demographic Details by Area or Affiliation</b><br/></div>
               <form id = "buckets" onclick="document.getElementById('barmode').reset(); 
                   type = $('input[name=datatype]:checked').val();
                   renderBarchart(type);"> Color chart by:
@@ -73,9 +86,10 @@
           </div>
         </div>
 
+        <!-- AREA CHART --> 
         <div class="row-fluid">
           <div class="span12">
-            <b>Commuter Modalities by Distance to MIT Campus</b>
+            <div class = "sectiontitle"><b>Commuter Modalities by Distance to MIT Campus</b></div>
             <div id="area-chart"></div>
             <span id="area-legend"></span>
             <span id="area-toggle">
@@ -105,22 +119,6 @@
           <dd>The bar chart shows the demographic distribution of the population being analyzed. Users may select a specific county area within Massachusetts by clicking on the county of interest to update the bar chart to show the demographic breakdown filtered by a single county. Hover over the bars within the barchar to expose details on demand for one specific demographic group. </dd>
           <dt>Commuter Modes</dt>
           <dd>The stacked area chart shows various commuter modes based on distance from campus. Hover over a given commute mode to highlight the corresponding area and update the bubble overlay and show the linkage between geographic distribution and commute mode. When a specific county is highlighted on the Massachusetts map, the relevant distance interval is highlighted on the stacked area chart to highlight the relevant distribution of commute modes.</dd>
-        </dl>
-        <a id="datakey"><fieldset><legend>Area and Affiliation Codes</legend></fieldset></a>
-        <b>Affiliation Codes</b>
-        <dl class="dl-horizontal">
-          <dt>U</dt>
-          <dd>Undergraduate Students</dd>
-          <dt>G</dt>
-          <dd>Graduate Students</dd>
-          <dt>F</dt>
-          <dd>Faculty</dd>
-          <dt>A</dt>
-          <dd>Administrators</dd>
-          <dt>AS</dt>
-          <dd>Academic Staff</dd>
-          <dt>SS</dt>
-          <dd>Support Staff</dd>
         </dl>
         <a id="examples"><fieldset><legend>Demo</legend></fieldset></a>
         <iframe width="560" height="315" src="http://www.youtube.com/embed/Jyfm55AIIhc"></iframe>

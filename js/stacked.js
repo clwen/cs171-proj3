@@ -18,8 +18,8 @@ function renderBarchart(datatype){
   }
   if(datatype == "count"){
     var margin = {top: 10, right: 40, bottom: 20, left: 60},
-      width = 520 - margin.left - margin.right,
-      height = 600 - margin.top - margin.bottom;
+      width = 500 - margin.left - margin.right,
+      height = 300 - margin.top - margin.bottom;
 
     var y0 = d3.scale.ordinal()
         .rangeRoundBands([height, 0], .2);

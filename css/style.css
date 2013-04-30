@@ -105,6 +105,18 @@ body {
   padding: 10px;
 }
 
+#hpLegend {
+  background: white;
+  padding: 10px;
+}
+
+#hpLegend .hp-price-card {
+  display: inline-block;
+  margin: 3px;
+  padding: 3px;
+  border: 1px solid #666;
+}
+
 #panel {
   position: absolute;
   top: 5px;

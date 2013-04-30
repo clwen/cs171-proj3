@@ -1,4 +1,4 @@
-var afflayer, commutelayer, transitLayer, bikeLayer, housingLayer, filteredLayer, map, legend;
+var afflayer, commutelayer, transitLayer, bikeLayer, housingLayer, filteredLayer, map, legend, hpLegend;
 var filtered = false;
 var styles = [[{
         where: "Affiliation = 'AS' OR Affiliation = 'SS'",
@@ -96,6 +96,17 @@ var comicons = {
         icon: 'http://storage.googleapis.com/support-kms-prod/SNP_2752063_en_v0'
     }
 }
+var hpColors = [
+    ["1000-", "rgb(255, 247, 243)"],
+    ["1100", "rgb(253, 224, 221)"],
+    ["1200", "rgb(252, 197, 192)"],
+    ["1300", "rgb(250, 159, 181)"],
+    ["1400", "rgb(247, 104, 61)"],
+    ["1500", "rgb(221, 52, 151)"],
+    ["1600", "rgb(174, 1, 126)"],
+    ["1700", "rgb(122, 1, 119)"],
+    ["1800+", "rgb(73, 0, 106)"],
+];
 
 HPOverlay.prototype = new google.maps.OverlayView();
 
@@ -157,6 +168,9 @@ function initGMap() {
     // push the legend div to the map
     legend = document.getElementById('legend');
     map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend); 
+    // push the housing price legend div to the map
+    hpLegend = document.getElementById('hpLegend');
+    map.controls[google.maps.ControlPosition.LEFT_BOTTOM].push(hpLegend); 
 }
 
 function filterMap(selection, column){
@@ -299,8 +313,21 @@ function renderLegend(icons){
     legend.className = "visible";
 }
 
+function renderHpLegend(icons){
+    hpLegend.innerHTML = '<b>Rental Price Legend</b>';
+    hpColors.forEach( function(d) {
+        var price = d[0];
+        var color = d[1];
+        var div = document.createElement('div');
+        div.innerHTML = "<span class='hp-price-card' width='20px' height='20px' style='background-color: " + color + "'></span>" + price;
+        hpLegend.appendChild(div);
+    });
+    hpLegend.className = "visible";
+}
+
 function hideLegend(){
     document.getElementById('legend').className="invisible";
+    document.getElementById('hpLegend').className="invisible";
 }
 
 // Show the selected data overlays
@@ -331,6 +358,7 @@ function showOverlays() {
     }
     else if(mode == "housing"){
         housingLayer.setMap(map);
+        renderHpLegend(comicons);
     }
 }
 

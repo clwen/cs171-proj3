@@ -1,4 +1,57 @@
-var afflayer, commutelayer, transitLayer, bikeLayer, housingLayer, map, legend;
+var afflayer, commutelayer, transitLayer, bikeLayer, housingLayer, filteredLayer, map, legend;
+var filtered = false;
+var styles = [[{
+        where: "Affiliation = 'AS' OR Affiliation = 'SS'",
+        markerOptions:{
+            iconName: "small_yellow",
+        }
+    },{
+        where: "Affiliation = 'U'",
+        markerOptions:{
+            iconName: "small_red"
+        }
+    },{
+        where: "Affiliation = 'G'",
+        markerOptions:{
+            iconName: "small_blue"
+        }
+    },{
+        where: "Affiliation = 'FAC'",
+        markerOptions:{
+            iconName: "small_green"
+        }
+    },{
+        where: "Affiliation = 'ADM'",
+        markerOptions:{
+            iconName: "small_purple"
+        }
+    }], [{
+        where: "Mode = 'T'",
+        markerOptions:{
+            iconName: "small_yellow",
+        }
+    },{
+        where: "Mode = 'DRV'",
+        markerOptions:{
+            iconName: "small_red"
+        }
+    },{
+        where: "Mode = 'CARPOOL'",
+        markerOptions:{
+            iconName: "small_blue"
+        }
+    },{
+        where: "Mode = 'WLK'",
+        markerOptions:{
+            iconName: "small_green"
+        }
+    },{
+        where: "Mode = 'BIC'",
+        markerOptions:{
+            iconName: "small_purple"
+        }
+    }]
+    ];
 var afficons = {
     U:{
         name:'Undergraduate Students',
@@ -55,59 +108,6 @@ function initGMap() {
     };
     map = new google.maps.Map(document.getElementById("gmap") ,mapProp);
 
-    var styles = [[{
-            where: "Affiliation = 'AS' or Affiliation = 'SS'",
-            markerOptions:{
-                iconName: "small_yellow",
-            }
-        },{
-            where: "Affiliation = 'U'",
-            markerOptions:{
-                iconName: "small_red"
-            }
-        },{
-            where: "Affiliation = 'G'",
-            markerOptions:{
-                iconName: "small_blue"
-            }
-        },{
-            where: "Affiliation = 'FAC'",
-            markerOptions:{
-                iconName: "small_green"
-            }
-        },{
-            where: "Affiliation = 'ADM'",
-            markerOptions:{
-                iconName: "small_purple"
-            }
-        }], [{
-            where: "Mode = 'T'",
-            markerOptions:{
-                iconName: "small_yellow",
-            }
-        },{
-            where: "Mode = 'DRV'",
-            markerOptions:{
-                iconName: "small_red"
-            }
-        },{
-            where: "Mode = 'CARPOOL'",
-            markerOptions:{
-                iconName: "small_blue"
-            }
-        },{
-            where: "Mode = 'WLK'",
-            markerOptions:{
-                iconName: "small_green"
-            }
-        },{
-            where: "Mode = 'BIC'",
-            markerOptions:{
-                iconName: "small_purple"
-            }
-        }]
-        ];
-
     // Define the data layers
     // COMMUTE TYPE
     commutelayer = new google.maps.FusionTablesLayer({
@@ -127,6 +127,15 @@ function initGMap() {
         styles: styles[0]
     });
 
+    // filteredLayer = new google.maps.FusionTablesLayer({
+    //     query: {
+    //         select: "Latitude",
+    //         from: "1eQqFnqJ2QvYRWPNgqrD-ou06vEXHNCZ7YCAD6-4",
+    //         where: "Affiliation = 'U'"
+    //     }, 
+    //     styles: styles[0]
+    // });
+
     transitLayer = new google.maps.TransitLayer();
     bikeLayer = new google.maps.BicyclingLayer();
 
@@ -141,19 +150,57 @@ function initGMap() {
     // google map event listener (i.e. click anywhere on the map to refresh and reset the selection)
     google.maps.event.addListener(map, 'click', function(event) {
         showOverlays();
-        map.panTo(event.latLng);
+        clearFilter();
     });
     // google fusion table layers event listeners
     google.maps.event.addListener(afflayer, 'click', function(event) {
-        console.log(event.row.Affiliation.value);
-        console.log(event.row);
-        // TODO: select only those points from the same group
-        map.panTo(event.latLng);
+        filterMap(event.row.Affiliation.value, "Affiliation");
+    });
+
+    google.maps.event.addListener(commutelayer, 'click', function(event) {
+        filterMap(event.row.Mode.value, "Mode");
     });
 
     // push the legend div to the map
     legend = document.getElementById('legend');
     map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend); 
+}
+
+function filterMap(selection, column){
+    filtered = true;
+    afflayer.setMap(null);
+    var query = column + " = '" + selection + "'";
+    if(selection == 'AS' || selection == 'SS'){
+        query = "Affiliation = 'AS' OR Affiliation = 'SS'"; // when you click on a yellow node it turns everything yellow!
+    }
+    console.log(query);
+    var filteredStyle = {};
+    var stylearray = [];
+    var tablekey = "";
+    if (column == 'Mode'){
+        stylearray = styles[1];
+        tablekey = "1KaFa7-nBJaPpN-65H63ru2L1pWLfzwOu4XeuqbM";
+    }
+    else{
+        stylearray = styles[0];
+        tablekey = "1eQqFnqJ2QvYRWPNgqrD-ou06vEXHNCZ7YCAD6-4";
+    }
+    // TODO: select an affiliation or commute mode on the map - filter the map view to only the group of points and interact with other viz
+    for (var s in stylearray){
+        if(stylearray[s].where == query){
+            filteredStyle.markerOptions = stylearray[s].markerOptions; 
+        }
+    }
+    console.log(filteredStyle);
+    filteredLayer = new google.maps.FusionTablesLayer({
+        query: {
+            select: "Latitude",
+            from: tablekey,
+            where: query
+        }, 
+        styles: [filteredStyle]
+    });
+    showOverlays();
 }
 
 // housing price overlay constructor
@@ -236,10 +283,17 @@ function clearOverlays() {
     transitLayer.setMap(null);
     bikeLayer.setMap(null);
     housingLayer.setMap(null);
+    if(filteredLayer){
+        filteredLayer.setMap(null);
+    }
+}
+
+function clearFilter(){
+    filtered = false;
 }
 
 // Add a legend
-function renderLegend(icons){ // TODO: make legend flexible for area, affiliation and commute type color encodings
+function renderLegend(icons){
     legend.innerHTML = '<b>Legend</b><br>(Each dot represents 5 people)';
     for (var key in icons) {
       var type = icons[key];
@@ -250,19 +304,10 @@ function renderLegend(icons){ // TODO: make legend flexible for area, affiliatio
       legend.appendChild(div);
     }
     legend.className = "visible";
-    // TODO: weirdness of the position when it re-renders, maybe use absolute positioning
-}
-
-function showLegend(){
-    document.getElementById('legend').className="visible";
 }
 
 function hideLegend(){
     document.getElementById('legend').className="invisible";
-}
-
-function filterMap(){
-    // TODO: select an affiliation or commute mode on the map - filter the map view to only the group of points and interact with other viz
 }
 
 // Show the selected data overlays
@@ -270,11 +315,18 @@ function showOverlays() {
     clearOverlays();
     var cat = $('input[name=category]:checked').val();
     var mode = $('input[name="mode"]:checked').val();
-    if (cat == "AFFILIATION"){
+    if (cat == "AFFILIATION" && filtered){
+        filteredLayer.setMap(map);   
+        renderLegend(afficons);
+    }
+    else if (cat == "AFFILIATION"){
         afflayer.setMap(map);   
         renderLegend(afficons);
     }
-    else if(cat == "COMMUTE"){
+    if(cat == "COMMUTE" && filtered){
+        filteredLayer.setMap(map);
+        renderLegend(comicons);
+    } else if(cat == "COMMUTE"){
         commutelayer.setMap(map);
         renderLegend(comicons);
     }

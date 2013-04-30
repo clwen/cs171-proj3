@@ -11,9 +11,9 @@
 <body>
 	<div id="panel">
 		<form id="mapOptions">
-		  <input onclick="document.getElementById('mapOptions').reset(); clearOverlays();" type=button value="Hide Overlays">
-		  <input onclick="showOverlays();" type="radio" name="category" value="AFFILIATION">Affiliation
-		  <input onclick="showOverlays();" type="radio" name="category" value="COMMUTE">Commute Mode
+		  <input onclick="document.getElementById('mapOptions').reset(); filtered = false; clearOverlays();" type=button value="Hide Overlays">
+		  <input onclick="filtered = false; showOverlays();" type="radio" name="category" value="AFFILIATION">Affiliation
+		  <input onclick="filtered = false; showOverlays();" type="radio" name="category" value="COMMUTE">Commute Mode
 		  <input onclick="showOverlays(); "type="radio" name="mode" value="transit">Public Transit
 		  <input onclick="showOverlays(); "type="radio" name="mode" value="bike">Bike Routes
 		  <input onclick="showOverlays(); "type="radio" name="mode" value="housing">Housing Price
@@ -21,10 +21,7 @@
 	</div>
 	  <div id="gmap"></div>
 	  <div id="legend"></div>
-	  <!--DONE: check off whether to show by affiliation or by area -->
-	  <!--DONE: bike and transit layer overlays -->
 	  <!--TODO: legend for housing price layer --> 
-	  <!--TODO: color each affiliation or area group differently .... style markers using colorbrewer-->
 	  <!--TODO: ability to select an affiliation or area ... and get the code to link with other visualizations 
 		use Google Maps event listener https://developers.google.com/maps/documentation/javascript/events -->
 	  <!--TODO: add interaction with bar chart and area chart --> 

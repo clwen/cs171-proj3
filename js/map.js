@@ -314,7 +314,7 @@ function renderLegend(icons){
 }
 
 function renderHpLegend(icons){
-    hpLegend.innerHTML = '<b>Rental Price Legend</b>';
+    hpLegend.innerHTML = '<b>Rental<br/>Price<br/>Legend</b>';
     hpColors.forEach( function(d) {
         var price = d[0];
         var color = d[1];

@@ -252,8 +252,27 @@ $(document).ready(function() {
         }
     });
 
+    // toggle the highlight between different commute modes
+    $('input:radio[name=hl]').click(function() {
+        var hl = $('input:radio[name=hl]:checked').val();
+        // if it's clear, clear the highlight, i.e., all modes back in color
+        if (hl === "CLEAR") {
+            modesUsed.forEach( function(m) {
+                var eid = '#' + m;
+                $(eid).css("fill", comColors[m]);
+            });
+        } else {
+            // gray out all the paths
+            $(".area").css("fill", "#999");
+            // turn on color for selected mode
+            var eid_hl = '#' + hl;
+            $(eid_hl).css("fill", comColors[hl]);
+        }
+    });
+
     show_percentage();
 
+    // add legend
     modesUsed.forEach( function(d) {
         var card_color = comColors[d];
 

@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
     <title>Commuting Modalities at MIT</title>
     <!--Javascript Libraries-->
     <script src="js/jquery-1.9.1.js"></script>
     <script src="js/d3.v3.min.js"></script>
     <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAjD3wP0Wog_xQ2AxYMPiXmLEfpG9mxWAs&sensor=false"></script>
+    <!--Custom Javascript-->
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/stacked.js"></script>
     <script type="text/javascript" src="js/area.js"></script>
-    <script src="js/map.js"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="js/map.js"></script>
     <!-- Bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <script src="js/bootstrap.min.js"></script>
     <!-- Custom CSS -->
     <link href='http://fonts.googleapis.com/css?family=Lato|Economica|Open+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <!--link rel="stylesheet" type="text/css" href="css/area.css"-->
-    
-
   </head>
+
   <body>
     <div class="navbar navbar-inverse navbar-fixed-bottom">
       <div class="navbar-inner">
@@ -72,7 +71,7 @@
               <input onclick="showOverlays(); "type="radio" name="mode" value="housing">Housing Price
             </form>
           </div>
-          <div id="gmap" style="width:640px;height:350px;"></div>
+          <div id="gmap" style="width:695px;height:360px;"></div>
           <div id="legend"></div>
         </div><!--/span7-->
 

@@ -90,14 +90,33 @@ var show_percentage = function() {
             .attr("class", "y axis")
             .call(yAxis);
 
+        var div = d3.select("#area-chart").append("div")
+            .attr("class", "area-tooltip")
+            .style("opacity", 0);
+
         $(".area").mouseover(function() {
             $(this).css("fill", "#ecc");
+
+            div.transition()
+                .duration(500)
+                .style("opacity", 1);
+        });
+
+        $(".area").mousemove(function(e) {
+            mode = $(this).attr("id");
+
+            div.text(mode)
+                .style("left", (e.pageX - 34) + "px")
+                .style("up", (e.pageY - 12) + "px");
         });
 
         $(".area").mouseout(function() {
             $(this).css("fill", color($(this).attr("id")));
-        });
 
+            div.transition()
+                .duration(500)
+                .style("opacity", 0);
+        });
     }); // end of d3.csv
 };
 
@@ -179,12 +198,32 @@ var show_number = function() {
             .attr("class", "y axis")
             .call(yAxis);
 
+        var div = d3.select("#area-chart").append("div")
+            .attr("class", "area-tooltip")
+            .style("opacity", 0);
+
         $(".area").mouseover(function() {
             $(this).css("fill", "#ecc");
+
+            div.transition()
+                .duration(500)
+                .style("opacity", 1);
+        });
+
+        $(".area").mousemove(function(e) {
+            mode = $(this).attr("id");
+
+            div.text(mode)
+                .style("left", (e.pageX - 34) + "px")
+                .style("up", (e.pageY - 12) + "px");
         });
 
         $(".area").mouseout(function() {
             $(this).css("fill", color($(this).attr("id")));
+
+            div.transition()
+                .duration(500)
+                .style("opacity", 0);
         });
     }); // end of d3.csv
 };

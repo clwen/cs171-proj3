@@ -110,7 +110,7 @@ function renderBarchart(datatype){
           .attr("transform", "translate(0," + y0.rangeBand() + ")")
           .call(xAxis);
 
-      d3.selectAll("input").on("change", change);
+      d3.selectAll(".chartmode").on("click", change);
 
       function change() {
         if (this.value === "multiples") transitionMultiples();
@@ -136,7 +136,7 @@ function renderBarchart(datatype){
   else if (datatype == "percent"){
     var margin = {top: 10, right: 40, bottom: 20, left: 60},
       width = 500 - margin.left - margin.right,
-      height = 600 - margin.top - margin.bottom;
+      height = 350 - margin.top - margin.bottom;
 
     var y0 = d3.scale.ordinal()
         .rangeRoundBands([height, 0], .2);
@@ -226,11 +226,12 @@ function renderBarchart(datatype){
           .attr("transform", "translate(0," + y0.rangeBand() + ")")
           .call(xAxis);
 
-      d3.selectAll("#barmode").on("change", change);
+      d3.selectAll(".chartmode").on("click", change);
 
       function change() {
         if (this.value === "multiples") transitionMultiples();
         else transitionStacked();
+        console.log(this.value);
       }
 
       function transitionMultiples() {

@@ -54,11 +54,11 @@ var styles = [[{
     ];
 var afficons = {
     U:{
-        name:'Undergraduate Students',
+        name:'Undergrads',
         icon: 'http://storage.googleapis.com/support-kms-prod/SNP_2752125_en_v0'
     },
     G:{
-        name:'Graduate Students',
+        name:'Grads',
         icon: 'http://storage.googleapis.com/support-kms-prod/SNP_2752068_en_v0'
     },
     F:{
@@ -66,7 +66,7 @@ var afficons = {
         icon: 'http://storage.googleapis.com/support-kms-prod/SNP_2752129_en_v0'
     },
     A:{
-        name:'Administration',
+        name:'Admin',
         icon: 'http://storage.googleapis.com/support-kms-prod/SNP_2752264_en_v0'
     },
     S:{
@@ -92,7 +92,7 @@ var comicons = {
         icon: 'http://storage.googleapis.com/support-kms-prod/SNP_2752264_en_v0'
     },
     T:{
-        name:'Public Transit',
+        name:'T',
         icon: 'http://storage.googleapis.com/support-kms-prod/SNP_2752063_en_v0'
     }
 }
@@ -301,7 +301,7 @@ function clearFilter(){
 
 // Add a legend
 function renderLegend(icons){
-    legend.innerHTML = '<b>Legend</b><br>(Each dot represents 5 people)';
+    legend.innerHTML = '<b>Data<br>Legend</b><br>';
     for (var key in icons) {
       var type = icons[key];
       var name = type.name;

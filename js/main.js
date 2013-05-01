@@ -6,6 +6,24 @@ var abbrToWord = {
     "CARPOOL": "Carpool",
 };
 
+var affiliatonDict = {
+    "G" : "Graduate",
+    "F" : "Faculty",
+    "ADM" : "Administration",
+    "AS" : "Academic Staff",
+    "SS" : "Support Staff",
+    "U" : "Undergraduate"
+};
+
+var affColors = {
+    "G" : "#9999ff",
+    "F" : "#99ff99",
+    "A" : "#ff99ff",
+    "AS" : "#ffff99",
+    "SS" : "#ffff99",
+    "U" : "#ff6666"
+};
+
 var modesUsed = ["WLK", "BIC", "T", "DRV", "CARPOOL"];
 
 var comColors = {
@@ -26,6 +44,21 @@ function scrolling() {
     
     event.preventDefault();
     });
+}
+
+var highlightAffiliation = function(a){
+    if (a === "CLEAR") {
+    for (var aff in affColors){
+        $("." + aff + " rect")
+        .css("fill", affColors[aff]);
+    }
+    } else {
+        // Highlight the bar chart
+        $("#bar rect")
+            .css("fill", "#999");
+        $("." + a + " rect")
+            .css("fill", affColors[a]);
+    }
 }
 
 var highlightCommuteMode = function(hl) { //highlight is not maintained when area or bar chart is toggled to percentage

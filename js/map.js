@@ -92,7 +92,7 @@ var comicons = {
         icon: 'http://storage.googleapis.com/support-kms-prod/SNP_2752264_en_v0'
     },
     T:{
-        name:'T',
+        name:'MBTA',
         icon: 'http://storage.googleapis.com/support-kms-prod/SNP_2752063_en_v0'
     }
 }

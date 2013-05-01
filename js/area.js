@@ -104,8 +104,6 @@ var show_percentage = function() {
             .style("opacity", 0);
 
         $(".area").mouseover(function() {
-            $(this).css("fill", "#ecc");
-
             div.transition()
                 .duration(500)
                 .style("opacity", 1);
@@ -120,8 +118,6 @@ var show_percentage = function() {
         });
 
         $(".area").mouseout(function() {
-            $(this).css("fill", comColors[$(this).attr("id")]);
-
             div.transition()
                 .duration(500)
                 .style("opacity", 0);
@@ -212,8 +208,6 @@ var show_number = function() {
             .style("opacity", 0);
 
         $(".area").mouseover(function() {
-            $(this).css("fill", "#ecc");
-
             div.transition()
                 .duration(500)
                 .style("opacity", 1);
@@ -228,8 +222,6 @@ var show_number = function() {
         });
 
         $(".area").mouseout(function() {
-            $(this).css("fill", comColors[$(this).attr("id")]);
-
             div.transition()
                 .duration(500)
                 .style("opacity", 0);

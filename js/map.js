@@ -165,18 +165,21 @@ function initGMap() {
             }
         }
         showOverlays();
+        updateHeader();
     });
     // google fusion table layers event listeners
     google.maps.event.addListener(afflayer, 'click', function(event) {
         var affiliation = event.row.Affiliation.value;
         filterMap(affiliation, "Affiliation");
         highlightAffiliation(affiliation);
+        updateHeader();
     });
 
     google.maps.event.addListener(commutelayer, 'click', function(event) {
         var mode = event.row.Mode.value;
         filterMap(mode, "Mode");
         highlightCommuteMode(mode);
+        updateHeader();
     });
 
     // push the legend div to the map

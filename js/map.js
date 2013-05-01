@@ -158,7 +158,7 @@ function initGMap() {
     // google fusion table layers event listeners
     google.maps.event.addListener(afflayer, 'click', function(event) {
         filterMap(event.row.Affiliation.value, "Affiliation");
-        // TODO - highlight in barchar
+        // TODO - highlight in barchart
     });
 
     google.maps.event.addListener(commutelayer, 'click', function(event) {

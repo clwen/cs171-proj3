@@ -20,10 +20,12 @@ form{
   width: 1200px;
 }
 
-.well{ /* needs more styling */
+.well{ 
   color: #993333;
   font-size: 16px;
   margin-top: 10px;
+  border-style:solid;
+  border-width:5px;
 }
 
 .navbar{

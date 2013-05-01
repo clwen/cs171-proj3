@@ -151,8 +151,8 @@ function initGMap() {
     // add event listeners
     // google map event listener (i.e. click anywhere on the map to refresh and reset the selection)
     google.maps.event.addListener(map, 'click', function(event) { // is mousemove or click better here??
-        showOverlays();
         clearFilter();
+        showOverlays();
         highlightAreaChart("CLEAR");
     });
     // google fusion table layers event listeners

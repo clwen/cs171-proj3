@@ -1,3 +1,5 @@
+// GLOBAL VARIABLES //
+
 var afflayer, commutelayer, transitLayer, bikeLayer, housingLayer, filteredLayer, map, legend, hpLegend;
 var filtered = false;
 var styles = [[{
@@ -55,45 +57,45 @@ var styles = [[{
 var afficons = {
     U:{
         name:'Undergrads',
-        icon: 'http://storage.googleapis.com/support-kms-prod/SNP_2752125_en_v0'
+        icon: 'img/small_red.png'
     },
     G:{
         name:'Grads',
-        icon: 'http://storage.googleapis.com/support-kms-prod/SNP_2752068_en_v0'
+        icon: 'img/small_blue.png'
     },
     F:{
         name:'Faculty',
-        icon: 'http://storage.googleapis.com/support-kms-prod/SNP_2752129_en_v0'
+        icon: 'img/small_green.png'
     },
     A:{
         name:'Admin',
-        icon: 'http://storage.googleapis.com/support-kms-prod/SNP_2752264_en_v0'
+        icon: 'img/small_purple.png'
     },
     S:{
         name:'Staff',
-        icon: 'http://storage.googleapis.com/support-kms-prod/SNP_2752063_en_v0'
+        icon: 'img/small_yellow.png'
     }
 }
 var comicons = {
     DRV:{
         name:'Drive',
-        icon: 'http://storage.googleapis.com/support-kms-prod/SNP_2752125_en_v0'
+        icon: 'img/small_red.png'
     },
     CARPOOL:{
         name:'Carpool',
-        icon: 'http://storage.googleapis.com/support-kms-prod/SNP_2752068_en_v0'
+        icon: 'img/small_blue.png'
     },
     WLK:{
         name:'Walk',
-        icon: 'http://storage.googleapis.com/support-kms-prod/SNP_2752129_en_v0'
+        icon: 'img/small_green.png'
     },
     BIC:{
         name:'Bike',
-        icon: 'http://storage.googleapis.com/support-kms-prod/SNP_2752264_en_v0'
+        icon: 'img/small_purple.png'
     },
     T:{
         name:'MBTA',
-        icon: 'http://storage.googleapis.com/support-kms-prod/SNP_2752063_en_v0'
+        icon: 'img/small_yellow.png'
     }
 }
 var hpColors = [

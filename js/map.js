@@ -162,10 +162,15 @@ function initGMap() {
     });
 
     google.maps.event.addListener(commutelayer, 'click', function(event) {
+        console.log(event);
         var mode = event.row.Mode.value;
         filterMap(mode, "Mode");
         highlightAreaChart(mode);
-        // TODO - highlight in barchart
+        // Highlight the bar chart - check to make sure abbreviations match up
+        $("#bar rect")
+            .css("fill", "#999");
+        $("#" + abbrToWord[mode] + " rect")
+            .css("fill", comColors[mode]);
     });
 
     // push the legend div to the map

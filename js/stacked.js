@@ -6,7 +6,8 @@ var comcolors = ['#99ff99', '#ff6666', '#ff99ff', '#ffff99', '#9999ff'];
 function renderBarchart(datatype){
   d3.select("#barchart").remove();
   var buckets = $('input[name=category]:checked').val();
-  var datafile = "data/commutes-by-area.csv";
+  console.log(buckets);
+  var datafile = "";
   var color;
   if(buckets == 'AFFILIATION'){
     datafile = "data/commutes-by-area-aff.csv";

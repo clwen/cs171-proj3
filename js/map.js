@@ -2,6 +2,7 @@
 
 var afflayer, commutelayer, transitLayer, bikeLayer, housingLayer, filteredLayer, map, legend, hpLegend;
 var filtered = false;
+var filterType = "";
 var selectedMode = "all";
 var styles = [[{
         where: "Affiliation IN ('AS','SS')",
@@ -155,8 +156,12 @@ function initGMap() {
     // google map event listener (i.e. click anywhere on the map to refresh and reset the selection)
     google.maps.event.addListener(map, 'click', function(event) { // is mousemove or click better here??
         if(filtered){
-            highlightCommuteMode("CLEAR");
-            highlightAffiliation("CLEAR");
+            if(filterType == "Affiliation"){
+                highlightAffiliation("CLEAR");
+            }
+            else if(filterType == "Mode"){
+                highlightCommuteMode("CLEAR");
+            }
         }
         clearFilter();
         showOverlays();
@@ -185,6 +190,7 @@ function initGMap() {
 
 function filterMap(selection, column){
     filtered = true;
+    filterType = column;
     afflayer.setMap(null);
     var query = column + " = '" + selection + "'";
     if(selection == 'AS' || selection == 'SS'){
@@ -324,6 +330,7 @@ function clearOverlays() {
 
 function clearFilter(){
     filtered = false;
+    filterType = "";
 }
 
 // Add a legend for the data points

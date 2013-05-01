@@ -9,10 +9,19 @@ var abbrToWord = {
 var affiliatonDict = {
     "G" : "Graduate",
     "F" : "Faculty",
-    "ADM" : "Administration",
+    "A" : "Administration",
     "AS" : "Academic Staff",
     "SS" : "Support Staff",
     "U" : "Undergraduate"
+};
+
+var affiliationCodeDict = {
+    "G" : "G",
+    "FAC" : "F",
+    "ADM" : "A",
+    "AS" : "AS",
+    "SS" : "SS",
+    "U" : "U"
 };
 
 var affColors = {
@@ -49,15 +58,22 @@ function scrolling() {
 var highlightAffiliation = function(a){
     if (a === "CLEAR") {
     for (var aff in affColors){
-        $("." + aff + " rect")
+        $("rect."+ aff)
         .css("fill", affColors[aff]);
     }
     } else {
         // Highlight the bar chart
         $("#bar rect")
             .css("fill", "#999");
-        $("." + a + " rect")
-            .css("fill", affColors[a]);
+        console.log("#bar rect." + affiliationCodeDict[a]);
+        $("rect." + affiliationCodeDict[a])
+            .css("fill", affColors[affiliationCodeDict[a]]);
+        if(a == "AS" || a == "SS"){
+            $("rect.SS")
+            .css("fill", affColors["SS"]);
+            $("rect.AS")
+            .css("fill", affColors["AS"]);
+        }
     }
 }
 

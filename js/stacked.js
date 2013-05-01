@@ -188,7 +188,7 @@ function renderBarchart(datatype){
       var group = svg.selectAll(".group")
           .data(dataByGroup)
         .enter().append("g")
-          .attr("class", "group")
+          .attr("class", "group").attr("id", function(d){ return d.key})
           .attr("transform", function(d) { return "translate(0," + y0(d.key) + ")"; });
 
       group.append("text")
@@ -205,7 +205,8 @@ function renderBarchart(datatype){
           .attr("x", function(d) { return x(d.AFFILIATION); })
           .attr("y", function(d) { return y1(d.PERCENT); })
           .attr("width", x.rangeBand())
-          .attr("height", function(d) { return y0.rangeBand() - y1(d.PERCENT); });
+          .attr("height", function(d) { return y0.rangeBand() - y1(d.PERCENT); })
+          .attr("class", function(d){return d.AFFILIATION_CODE});
 
       // TOOLTIP
       d3.selectAll("rect")

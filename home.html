@@ -52,8 +52,12 @@
               <form onclick="filtered = false; showOverlays(); document.getElementById('barmode').reset(); 
                   type = $('input[name=datatype]:checked').val();
                   renderBarchart(type);">
-              <input type="radio" name="category" value="AFFILIATION">Affiliation
-              <input type="radio" name="category" value="COMMUTE" checked>Commute Mode
+                  <label class="radio inline">
+                    <input type="radio" name="category" value="AFFILIATION">Affiliation
+                  </label>
+                  <label class="radio inline">
+                    <input type="radio" name="category" value="COMMUTE" checked>Commute Mode
+                  </label>
             </form>
           </div><!--/pagination-->
         </div><!--/span3-->

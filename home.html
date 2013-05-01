@@ -85,9 +85,9 @@
               <input type="radio" name="bucket" value="Affiliation"> Affiliation
               <input type="radio" name="bucket" value="Commute" checked> Commute Mode
             </form>
-            <form id = "barmode"> Show chart as:
-              <input type="radio" name="mode" value="multiples" checked> Multiples
-              <input type="radio" name="mode" value="stacked"> Stacked
+            <form id='barmode'> Show chart as:
+              <input type="radio" class = "chartmode" name="mode" value="multiples" checked> Multiples
+              <input type="radio" class = "chartmode" name="mode" value="stacked"> Stacked
             </form>
             <form onclick="document.getElementById('barmode').reset(); 
                           type = $('input[name=datatype]:checked').val();

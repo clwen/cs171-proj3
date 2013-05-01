@@ -259,14 +259,14 @@ $(document).ready(function() {
         if (hl === "CLEAR") {
             modesUsed.forEach( function(m) {
                 var eid = '#' + m;
-                $(eid).css("fill", comColors[m]);
+                $(eid, "#area-chart").css("fill", comColors[m]);
             });
         } else {
             // gray out all the paths
             $(".area").css("fill", "#999");
             // turn on color for selected mode
             var eid_hl = '#' + hl;
-            $(eid_hl).css("fill", comColors[hl]);
+            $(eid_hl, "#area-chart").css("fill", comColors[hl]);
         }
     });
 

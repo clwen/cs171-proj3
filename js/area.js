@@ -247,6 +247,19 @@ $(document).ready(function() {
             show_number();
         }
     });
+    // Rerender the area chart when data grouping is toggled
+    $('input:radio[name=category]').click(function() {
+        var mode = $('input:radio[name=repr]:checked').val();
+        if (mode === "percentage") {
+            d3.select("#area-chart svg")
+                .remove();
+            show_percentage();
+        } else if (mode === "number") {
+            d3.select("#area-chart svg")
+                .remove();
+            show_number();
+        }
+    });
 
     show_percentage();
 

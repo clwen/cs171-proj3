@@ -4,6 +4,7 @@ var afflayer, commutelayer, transitLayer, bikeLayer, housingLayer, filteredLayer
 var filtered = false;
 var filterType = "";
 var selectedMode = "all";
+var selectedAff = "all";
 var styles = [[{
         where: "Affiliation IN ('AS','SS')",
         markerOptions:{
@@ -163,7 +164,6 @@ function initGMap() {
                 highlightCommuteMode("CLEAR");
             }
         }
-        clearFilter();
         showOverlays();
     });
     // google fusion table layers event listeners
@@ -174,7 +174,6 @@ function initGMap() {
     });
 
     google.maps.event.addListener(commutelayer, 'click', function(event) {
-        console.log(event);
         var mode = event.row.Mode.value;
         filterMap(mode, "Mode");
         highlightCommuteMode(mode);
@@ -208,6 +207,7 @@ function filterMap(selection, column){
     else if (column == 'Affiliation'){
         stylearray = styles[0];
         tablekey = "1eQqFnqJ2QvYRWPNgqrD-ou06vEXHNCZ7YCAD6-4";
+        selectedAff = selection;
     }
     // TODO: select an affiliation or commute mode on the map - filter the map view to only the group of points and interact with other viz
     for (var s in stylearray){
@@ -332,6 +332,7 @@ function clearFilter(){
     filtered = false;
     filterType = "";
     selectedMode = "all";
+    selectedAff = "all";
 }
 
 // Add a legend for the data points

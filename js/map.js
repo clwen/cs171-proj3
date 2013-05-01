@@ -151,8 +151,8 @@ function initGMap() {
     // add event listeners
     // google map event listener (i.e. click anywhere on the map to refresh and reset the selection)
     google.maps.event.addListener(map, 'click', function(event) { // is mousemove or click better here??
-        showOverlays();
         clearFilter();
+        showOverlays();
         highlightAreaChart("CLEAR");
     });
     // google fusion table layers event listeners
@@ -337,7 +337,7 @@ function renderLegend(icons){
     legend.className = "visible";
 }
 
-function renderHpLegend(icons){
+function renderHpLegend(){
     hpLegend.innerHTML = '<b>Rental<br/>Price<br/>Legend</b>';
     hpColors.forEach( function(d) {
         var price = d[0];
@@ -383,7 +383,7 @@ function showOverlays() {
     }
     else if(mode == "housing"){
         housingLayer.setMap(map);
-        renderHpLegend(comicons);
+        renderHpLegend();
     }
 }
 

@@ -52,6 +52,7 @@
               <form onclick="filtered = false; showOverlays(); document.getElementById('barmode').reset(); 
                   type = $('input[name=datatype]:checked').val();
                   renderBarchart(type);">
+                  Data by:
                   <label class="radio inline">
                     <input type="radio" name="category" value="AFFILIATION">Affiliation
                   </label>
@@ -74,7 +75,7 @@
           <!-- width="892.6" height="545.8"  -->
           <div>
             <form id="mapOptions">
-              <input onclick="document.getElementById('mapOptions').reset(); filtered = false; clearOverlays();" type=button value="Hide Overlays">
+              <input onclick="document.getElementById('mapOptions').reset(); clearOverlays();" type=button value="Hide Overlays">
               <input onclick="showOverlays(); "type="radio" name="mode" value="transit">Public Transit
               <input onclick="showOverlays(); "type="radio" name="mode" value="bike">Bike Routes
               <input onclick="showOverlays(); "type="radio" name="mode" value="housing">Housing Price

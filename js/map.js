@@ -293,6 +293,22 @@ function clearOverlays() {
     if(filteredLayer){
         filteredLayer.setMap(null);
     }
+    var cat = $('input[name=category]:checked').val();
+    if (cat == "AFFILIATION" && filtered){
+        filteredLayer.setMap(map);   
+        renderLegend(afficons);
+    }
+    else if (cat == "AFFILIATION"){
+        afflayer.setMap(map);   
+        renderLegend(afficons);
+    }
+    if(cat == "COMMUTE" && filtered){
+        filteredLayer.setMap(map);
+        renderLegend(comicons);
+    } else if(cat == "COMMUTE"){
+        commutelayer.setMap(map);
+        renderLegend(comicons);
+    }
 }
 
 function clearFilter(){
@@ -333,23 +349,24 @@ function hideLegend(){
 // Show the selected data overlays
 function showOverlays() {
     clearOverlays();
-    var cat = $('input[name=category]:checked').val();
+    // var cat = $('input[name=category]:checked').val();
+    
+    // // if (cat == "AFFILIATION" && filtered){
+    // //     filteredLayer.setMap(map);   
+    // //     renderLegend(afficons);
+    // // }
+    // // else if (cat == "AFFILIATION"){
+    // //     afflayer.setMap(map);   
+    // //     renderLegend(afficons);
+    // // }
+    // // if(cat == "COMMUTE" && filtered){
+    // //     filteredLayer.setMap(map);
+    // //     renderLegend(comicons);
+    // // } else if(cat == "COMMUTE"){
+    // //     commutelayer.setMap(map);
+    // //     renderLegend(comicons);
+    // // }
     var mode = $('input[name="mode"]:checked').val();
-    if (cat == "AFFILIATION" && filtered){
-        filteredLayer.setMap(map);   
-        renderLegend(afficons);
-    }
-    else if (cat == "AFFILIATION"){
-        afflayer.setMap(map);   
-        renderLegend(afficons);
-    }
-    if(cat == "COMMUTE" && filtered){
-        filteredLayer.setMap(map);
-        renderLegend(comicons);
-    } else if(cat == "COMMUTE"){
-        commutelayer.setMap(map);
-        renderLegend(comicons);
-    }
     if(mode == "transit"){
         transitLayer.setMap(map);
     }

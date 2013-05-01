@@ -63,6 +63,7 @@ var highlightAffiliation = function(a){
         $("rect."+ aff)
         .css("fill", affColors[aff]);
     }
+    clearFilter();
     } else {
         // Highlight the bar chart
         $("#bar rect")
@@ -88,6 +89,7 @@ var highlightCommuteMode = function(hl) { //highlight is not maintained when are
             $("#" + abbrToWord[abbr] + " rect")
             .css("fill", comColors[abbr]);
         }
+        clearFilter();
     } else {
         // gray out all the paths
         $(".area").css("fill", "#999");

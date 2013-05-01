@@ -49,8 +49,9 @@
               <li><a href="#">Next</a></li>
             </ul>
             <br>
-              <form onclick="filtered = false; highlightCommuteMode('CLEAR'); showOverlays(); document.getElementById('barmode').reset(); 
+              <form onclick="filtered = false; showOverlays(); document.getElementById('barmode').reset(); document.getElementById('areamode').reset(); 
                   type = $('input[name=datatype]:checked').val();
+                  clearFilter();
                   renderBarchart(type);">
                   Data by:
                   <label class="radio inline">
@@ -75,10 +76,16 @@
           <!-- width="892.6" height="545.8"  -->
           <div>
             <form id="mapOptions">
-              <input onclick="document.getElementById('mapOptions').reset(); clearOverlays();" type=button value="Hide Overlays">
+              <label class="radio inline">
               <input onclick="showOverlays(); "type="radio" name="mode" value="transit">Public Transit
+              </label>
+              <label class="radio inline">
               <input onclick="showOverlays(); "type="radio" name="mode" value="bike">Bike Routes
+              </label>
+              <label class="radio inline">
               <input onclick="showOverlays(); "type="radio" name="mode" value="housing">Housing Price
+              </label>
+              <input class = "pull-right" onclick="document.getElementById('mapOptions').reset(); clearOverlays();" type=button value="Hide Overlay">
             </form>
           </div>
           <div id="gmap" style="width:695px;height:360px;"></div>
@@ -89,15 +96,23 @@
           <!-- SMALL MULTIPLES BARCHART --> 
           <div class="span5">
             <div class = "sectiontitle"><b>Details by Affiliation and Commute Mode</b><br/></div>
-            <form id='barmode'> Show chart as:
-              <input type="radio" class = "chartmode" name="mode" value="multiples" checked> Multiples
-              <input type="radio" class = "chartmode" name="mode" value="stacked"> Stacked
+            <form id='barmode' class = "pull-left">
+              <label class="radio inline">
+                <input type="radio" class = "chartmode" name="mode" value="multiples" checked> Multiples
+              </label>
+              <label class="radio inline">
+                <input type="radio" class = "chartmode" name="mode" value="stacked"> Stacked
+              </label>
             </form>
             <form onclick="document.getElementById('barmode').reset(); 
                           type = $('input[name=datatype]:checked').val();
-                          renderBarchart(type);"> Show data as: 
-              <input type="radio" name="datatype" value="count" checked> Count
-              <input type="radio" name="datatype" value="percent"> Percentage 
+                          renderBarchart(type);" class = "pull-right"> 
+              <label class="radio inline">
+                <input type="radio" name="datatype" value="count" checked> Count
+              </label>
+              <label class="radio inline">
+                <input type="radio" name="datatype" value="percent"> Percentage 
+              </label>
             </form>
             <div id = "tooltip" class = "invisible"></div>
             <div id = "area-tooltip" class = "invisible"></div>
@@ -112,9 +127,13 @@
             <div id="area-chart"></div>
             <span id="area-legend"></span>
             <span id="area-toggle">
-              <form>
-                <input type="radio" name="repr" value="number">Count
-                <input type="radio" name="repr" value="percentage" checked>Percentage
+              <form id="areamode">
+                <label class="radio inline">
+                  <input type="radio" name="repr" value="number">Count
+                </label>
+                <label class="radio inline">
+                  <input type="radio" name="repr" value="percentage" checked>Percentage
+                </label>
               </form>
             </span>
           </div>

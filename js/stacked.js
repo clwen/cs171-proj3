@@ -19,7 +19,7 @@ function renderBarchart(datatype){
   if(datatype == "count"){
     var margin = {top: 10, right: 40, bottom: 20, left: 60},
       width = 500 - margin.left - margin.right,
-      height = 350 - margin.top - margin.bottom;
+      height = 380 - margin.top - margin.bottom;
 
     var y0 = d3.scale.ordinal()
         .rangeRoundBands([height, 0], .2);
@@ -140,7 +140,7 @@ function renderBarchart(datatype){
   else if (datatype == "percent"){
     var margin = {top: 10, right: 40, bottom: 20, left: 60},
       width = 500 - margin.left - margin.right,
-      height = 350 - margin.top - margin.bottom;
+      height = 380 - margin.top - margin.bottom;
 
     var y0 = d3.scale.ordinal()
         .rangeRoundBands([height, 0], .2);
@@ -257,10 +257,6 @@ function renderBarchart(datatype){
         g.select(".group-label").attr("y", function(d) { return y1(d.values[0].PERCENT / 2 + d.values[0].valueOffset); })
       }
     });
-  }
-
-  if (selectedMode !== "all") {
-      highlightCommuteMode(selectedMode);
   }
   
 }

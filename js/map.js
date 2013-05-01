@@ -2,8 +2,9 @@
 
 var afflayer, commutelayer, transitLayer, bikeLayer, housingLayer, filteredLayer, map, legend, hpLegend;
 var filtered = false;
+var selectedmode = "all";
 var styles = [[{
-        where: "Affiliation = 'AS' OR Affiliation = 'SS'",
+        where: "Affiliation IN ('AS','SS')",
         markerOptions:{
             iconName: "small_yellow",
         }
@@ -183,7 +184,7 @@ function filterMap(selection, column){
     afflayer.setMap(null);
     var query = column + " = '" + selection + "'";
     if(selection == 'AS' || selection == 'SS'){
-        query = "Affiliation = 'AS' OR Affiliation = 'SS'"; // when you click on a yellow node it turns everything yellow!
+        query = "Affiliation IN ('AS','SS')";
     }
     console.log(query);
     var filteredStyle = {};
@@ -192,8 +193,9 @@ function filterMap(selection, column){
     if (column == 'Mode'){
         stylearray = styles[1];
         tablekey = "1KaFa7-nBJaPpN-65H63ru2L1pWLfzwOu4XeuqbM";
+        selectedmode = selection;
     }
-    else{
+    else if (column == 'Affiliation'){
         stylearray = styles[0];
         tablekey = "1eQqFnqJ2QvYRWPNgqrD-ou06vEXHNCZ7YCAD6-4";
     }
@@ -320,7 +322,7 @@ function clearFilter(){
     filtered = false;
 }
 
-// Add a legend
+// Add a legend for the data points
 function renderLegend(icons){
     legend.innerHTML = '<b>Data<br>Legend</b><br>';
     for (var key in icons) {
@@ -334,6 +336,7 @@ function renderLegend(icons){
     legend.className = "visible";
 }
 
+// Add a legend for the housing price overlay
 function renderHpLegend(){
     hpLegend.innerHTML = '<b>Rental<br/>Price<br/>Legend</b>';
     hpColors.forEach( function(d) {
@@ -354,23 +357,6 @@ function hideLegend(){
 // Show the selected data overlays
 function showOverlays() {
     clearOverlays();
-    // var cat = $('input[name=category]:checked').val();
-    
-    // // if (cat == "AFFILIATION" && filtered){
-    // //     filteredLayer.setMap(map);   
-    // //     renderLegend(afficons);
-    // // }
-    // // else if (cat == "AFFILIATION"){
-    // //     afflayer.setMap(map);   
-    // //     renderLegend(afficons);
-    // // }
-    // // if(cat == "COMMUTE" && filtered){
-    // //     filteredLayer.setMap(map);
-    // //     renderLegend(comicons);
-    // // } else if(cat == "COMMUTE"){
-    // //     commutelayer.setMap(map);
-    // //     renderLegend(comicons);
-    // // }
     var mode = $('input[name="mode"]:checked').val();
     if(mode == "transit"){
         transitLayer.setMap(map);

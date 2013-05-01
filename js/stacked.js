@@ -231,8 +231,6 @@ function renderBarchart(datatype){
       });
 
 
-
-
       group.filter(function(d, i) { return !i; }).append("g")
           .attr("class", "x axis")
           .attr("transform", "translate(0," + y0.rangeBand() + ")")
@@ -259,6 +257,11 @@ function renderBarchart(datatype){
         g.select(".group-label").attr("y", function(d) { return y1(d.values[0].PERCENT / 2 + d.values[0].valueOffset); })
       }
     });
+  }
+
+  console.log(selectedmode);
+  if(selectedmode != "all"){
+    highlightCommuteMode(selectedmode);
   }
   
 }

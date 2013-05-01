@@ -99,29 +99,27 @@ var show_percentage = function() {
             .attr("class", "y axis")
             .call(yAxis);
 
-        var div = d3.select("#area-chart").append("div")
-            .attr("class", "area-tooltip")
-            .style("opacity", 0);
-
-        $(".area").mouseover(function() {
-            div.transition()
-                .duration(500)
-                .style("opacity", 1);
-        });
-
-        $(".area").mousemove(function(e) {
-            mode = $(this).attr("id");
-
-            div.text(mode)
-                .style("left", (e.pageX - 34) + "px")
-                .style("up", (e.pageY - 12) + "px");
-        });
-
-        $(".area").mouseout(function() {
-            div.transition()
-                .duration(500)
-                .style("opacity", 0);
-        });
+        // tooltip
+        d3.selectAll("#area-chart path")
+            .on("mousemove", function (d) {
+                var html_to_show = abbrToWord[$(this).attr("id")];
+                window.lastX = event.pageX;
+                window.lastY = event.pageY;
+                var ttOffset = 8;
+                var x = window.lastX + ttOffset;
+                var y = window.lastY + ttOffset;
+                $("#area-tooltip")
+                .removeClass("invisible")
+                .show()
+                .html(html_to_show)
+                .css("position", "absolute")
+                .css("left", x + "px")
+                .css("top", y + "px")
+                .css("padding", "15px");
+            })
+            .on("mouseleave", function () {
+                $("#area-tooltip").fadeOut();
+            });
     }); // end of d3.csv
 };
 
@@ -202,30 +200,28 @@ var show_number = function() {
         svg.append("g")
             .attr("class", "y axis")
             .call(yAxis);
-
-        var div = d3.select("#area-chart").append("div")
-            .attr("class", "area-tooltip")
-            .style("opacity", 0);
-
-        $(".area").mouseover(function() {
-            div.transition()
-                .duration(500)
-                .style("opacity", 1);
-        });
-
-        $(".area").mousemove(function(e) {
-            mode = $(this).attr("id");
-
-            div.text(mode)
-                .style("left", (e.pageX - 34) + "px")
-                .style("up", (e.pageY - 12) + "px");
-        });
-
-        $(".area").mouseout(function() {
-            div.transition()
-                .duration(500)
-                .style("opacity", 0);
-        });
+        
+        // tooltip
+        d3.selectAll("#area-chart path")
+            .on("mousemove", function (d) {
+                var html_to_show = abbrToWord[$(this).attr("id")];
+                window.lastX = event.pageX;
+                window.lastY = event.pageY;
+                var ttOffset = 8;
+                var x = window.lastX + ttOffset;
+                var y = window.lastY + ttOffset;
+                $("#area-tooltip")
+                .removeClass("invisible")
+                .show()
+                .html(html_to_show)
+                .css("position", "absolute")
+                .css("left", x + "px")
+                .css("top", y + "px")
+                .css("padding", "15px");
+            })
+            .on("mouseleave", function () {
+                $("#area-tooltip").fadeOut();
+            });
     }); // end of d3.csv
 };
 

@@ -91,14 +91,18 @@ function renderBarchart(datatype){
       d3.selectAll("rect")
         .on("mousemove", function (d) {
           var html_to_show = d.AFFILIATION + "<br/>" + "Total Population: " + d.COUNT;
-          console.log(d3.mouse(this));
+          window.lastX = event.pageX;
+          window.lastY = event.pageY;
+          var ttOffset = 8;
+          var x = window.lastX + ttOffset;
+          var y = window.lastY + ttOffset;
           $("#tooltip")
               .removeClass("invisible")
               .show()
               .html(html_to_show)
               .css("position", "absolute")
-              .css("left", (d3.mouse(this)[0]) + "px")
-              .css("top", (d3.mouse(this)[1]) + "px")
+              .css("left", x + "px")
+              .css("top", y + "px")
               .css("padding", "15px");
         })
         .on("mouseleave", function () {
@@ -207,19 +211,26 @@ function renderBarchart(datatype){
       d3.selectAll("rect")
         .on("mousemove", function (d) {
           var html_to_show = d.AFFILIATION + "<br/>" + "Percentage: " + Math.floor(d.PERCENT) + "%";
-          console.log(d3.mouse(this));
+          window.lastX = event.pageX;
+          window.lastY = event.pageY;
+          var ttOffset = 8;
+          var x = window.lastX + ttOffset;
+          var y = window.lastY + ttOffset;
           $("#tooltip")
               .removeClass("invisible")
               .show()
               .html(html_to_show)
               .css("position", "absolute")
-              .css("left", (d3.mouse(this)[0]) + "px")
-              .css("top", (d3.mouse(this)[1]) + "px")
+              .css("left", x + "px")
+              .css("top", y + "px")
               .css("padding", "15px");
         })
         .on("mouseleave", function () {
           $("#tooltip").fadeOut();
-      }); 
+      });
+
+
+
 
       group.filter(function(d, i) { return !i; }).append("g")
           .attr("class", "x axis")

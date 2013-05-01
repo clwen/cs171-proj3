@@ -165,7 +165,7 @@ function initGMap() {
         console.log(event);
         var mode = event.row.Mode.value;
         filterMap(mode, "Mode");
-        highlightAreaChart(mode);
+        highlightAreaChart(mode); // TODO: enable highlight on percent toggle
         // Highlight the bar chart - check to make sure abbreviations match up
         $("#bar rect")
             .css("fill", "#999");

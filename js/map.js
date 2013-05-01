@@ -331,6 +331,7 @@ function clearOverlays() {
 function clearFilter(){
     filtered = false;
     filterType = "";
+    selectedMode = "all";
 }
 
 // Add a legend for the data points

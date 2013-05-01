@@ -65,7 +65,6 @@ var highlightAffiliation = function(a){
         // Highlight the bar chart
         $("#bar rect")
             .css("fill", "#999");
-        console.log("#bar rect." + affiliationCodeDict[a]);
         $("rect." + affiliationCodeDict[a])
             .css("fill", affColors[affiliationCodeDict[a]]);
         if(a == "AS" || a == "SS"){

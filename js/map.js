@@ -332,7 +332,7 @@ function renderLegend(icons){
     legend.className = "visible";
 }
 
-function renderHpLegend(icons){
+function renderHpLegend(){
     hpLegend.innerHTML = '<b>Rental<br/>Price<br/>Legend</b>';
     hpColors.forEach( function(d) {
         var price = d[0];
@@ -378,7 +378,7 @@ function showOverlays() {
     }
     else if(mode == "housing"){
         housingLayer.setMap(map);
-        renderHpLegend(comicons);
+        renderHpLegend();
     }
 }
 

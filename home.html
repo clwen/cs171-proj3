@@ -19,6 +19,7 @@
     <!-- Custom CSS -->
     <link href='http://fonts.googleapis.com/css?family=Lato|Economica|Open+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/area.css">
   </head>
 
   <body>
@@ -107,8 +108,18 @@
             <span id="area-legend"></span>
             <span id="area-toggle">
               <form>
-                <input type="radio" name="repr" value="number">#
-                <input type="radio" name="repr" value="percentage">%
+                <input type="radio" name="repr" value="number">Count
+                <input type="radio" name="repr" value="percentage" checked>Percentage
+              </form>
+            </span>
+            <span id="area-hl">
+              <form>
+                <input type="radio" name="hl" value="WLK">WLK
+                <input type="radio" name="hl" value="BIC">BIC
+                <input type="radio" name="hl" value="T">T
+                <input type="radio" name="hl" value="DRV">DRV
+                <input type="radio" name="hl" value="CARPOOL">CARPOOL
+                <input type="radio" name="hl" value="CLEAR" checked>CLEAR
               </form>
             </span>
           </div>

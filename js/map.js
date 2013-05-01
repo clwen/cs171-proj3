@@ -153,7 +153,7 @@ function initGMap() {
     google.maps.event.addListener(map, 'click', function(event) { // is mousemove or click better here??
         clearFilter();
         showOverlays();
-        highlightAreaChart("CLEAR");
+        highlightCommuteMode("CLEAR");
     });
     // google fusion table layers event listeners
     google.maps.event.addListener(afflayer, 'click', function(event) {
@@ -165,12 +165,7 @@ function initGMap() {
         console.log(event);
         var mode = event.row.Mode.value;
         filterMap(mode, "Mode");
-        highlightAreaChart(mode); // TODO: enable highlight on percent toggle
-        // Highlight the bar chart - check to make sure abbreviations match up
-        $("#bar rect")
-            .css("fill", "#999");
-        $("#" + abbrToWord[mode] + " rect")
-            .css("fill", comColors[mode]);
+        highlightCommuteMode(mode);
     });
 
     // push the legend div to the map

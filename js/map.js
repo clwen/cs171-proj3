@@ -153,16 +153,19 @@ function initGMap() {
     google.maps.event.addListener(map, 'click', function(event) { // is mousemove or click better here??
         showOverlays();
         clearFilter();
+        highlightAreaChart("CLEAR");
     });
     // google fusion table layers event listeners
     google.maps.event.addListener(afflayer, 'click', function(event) {
         filterMap(event.row.Affiliation.value, "Affiliation");
-        //TODO - highlight in barchar
+        // TODO - highlight in barchar
     });
 
     google.maps.event.addListener(commutelayer, 'click', function(event) {
-        filterMap(event.row.Mode.value, "Mode");
-        //TODO - highlight in barchart
+        var mode = event.row.Mode.value;
+        filterMap(mode, "Mode");
+        highlightAreaChart(mode);
+        // TODO - highlight in barchart
     });
 
     // push the legend div to the map

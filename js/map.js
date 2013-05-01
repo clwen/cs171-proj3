@@ -2,7 +2,7 @@
 
 var afflayer, commutelayer, transitLayer, bikeLayer, housingLayer, filteredLayer, map, legend, hpLegend;
 var filtered = false;
-var selectedmode = "all";
+var selectedMode = "all";
 var styles = [[{
         where: "Affiliation IN ('AS','SS')",
         markerOptions:{
@@ -193,7 +193,7 @@ function filterMap(selection, column){
     if (column == 'Mode'){
         stylearray = styles[1];
         tablekey = "1KaFa7-nBJaPpN-65H63ru2L1pWLfzwOu4XeuqbM";
-        selectedmode = selection;
+        selectedMode = selection;
     }
     else if (column == 'Affiliation'){
         stylearray = styles[0];

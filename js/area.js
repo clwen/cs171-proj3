@@ -99,6 +99,10 @@ var show_percentage = function() {
             .attr("class", "y axis")
             .call(yAxis);
 
+        if (selectedMode !== "all") {
+            highlightCommuteMode(selectedMode);
+        }
+
         // tooltip
         d3.selectAll("#area-chart path")
             .on("mousemove", function (d) {
@@ -201,6 +205,10 @@ var show_number = function() {
             .attr("class", "y axis")
             .call(yAxis);
         
+        if (selectedMode !== "all") {
+            highlightCommuteMode(selectedMode);
+        }
+
         // tooltip
         d3.selectAll("#area-chart path")
             .on("mousemove", function (d) {

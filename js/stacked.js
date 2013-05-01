@@ -259,9 +259,8 @@ function renderBarchart(datatype){
     });
   }
 
-  console.log(selectedmode);
-  if(selectedmode != "all"){
-    highlightCommuteMode(selectedmode);
+  if(selectedMode != "all"){
+    highlightCommuteMode(selectedMode);
   }
   
 }

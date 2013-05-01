@@ -3,6 +3,7 @@
 var afflayer, commutelayer, transitLayer, bikeLayer, housingLayer, filteredLayer, map, legend, hpLegend;
 var filtered = false;
 var selectedmode = "all";
+
 var styles = [[{
         where: "Affiliation IN ('AS','SS')",
         markerOptions:{
@@ -154,14 +155,18 @@ function initGMap() {
     // add event listeners
     // google map event listener (i.e. click anywhere on the map to refresh and reset the selection)
     google.maps.event.addListener(map, 'click', function(event) { // is mousemove or click better here??
+        if(filtered){
+            highlightCommuteMode("CLEAR");
+            highlightAffiliation("CLEAR");
+        }
         clearFilter();
         showOverlays();
-        highlightCommuteMode("CLEAR");
     });
     // google fusion table layers event listeners
     google.maps.event.addListener(afflayer, 'click', function(event) {
-        filterMap(event.row.Affiliation.value, "Affiliation");
-        // TODO - highlight in barchart
+        var affiliation = event.row.Affiliation.value;
+        filterMap(affiliation, "Affiliation");
+        highlightAffiliation(affiliation);
     });
 
     google.maps.event.addListener(commutelayer, 'click', function(event) {

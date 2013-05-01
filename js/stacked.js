@@ -5,14 +5,14 @@ var comcolors = ['#99ff99', '#ff6666', '#ff99ff', '#ffff99', '#9999ff'];
 
 function renderBarchart(datatype){
   d3.select("#barchart").remove();
-  var buckets = $('input[name=bucket]:checked').val();
+  var buckets = $('input[name=category]:checked').val();
   var datafile = "data/commutes-by-area.csv";
   var color;
-  if(buckets == 'Affiliation'){
+  if(buckets == 'AFFILIATION'){
     datafile = "data/commutes-by-area-aff.csv";
     color = affcolors;
   }
-  else if(buckets == 'Commute'){
+  else if(buckets == 'COMMUTE'){
     datafile = "data/commutes-by-area-mode.csv";
     color = comcolors;
   }
@@ -231,7 +231,6 @@ function renderBarchart(datatype){
       function change() {
         if (this.value === "multiples") transitionMultiples();
         else transitionStacked();
-        console.log(this.value);
       }
 
       function transitionMultiples() {

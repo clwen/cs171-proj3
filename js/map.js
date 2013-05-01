@@ -195,7 +195,7 @@ function filterMap(selection, column){
     if(selection == 'AS' || selection == 'SS'){
         query = "Affiliation IN ('AS','SS')";
     }
-    console.log(query);
+    //console.log(query);
     var filteredStyle = {};
     var stylearray = [];
     var tablekey = "";
@@ -215,7 +215,6 @@ function filterMap(selection, column){
             filteredStyle.markerOptions = stylearray[s].markerOptions; 
         }
     }
-    console.log(filteredStyle);
     filteredLayer = new google.maps.FusionTablesLayer({
         query: {
             select: "Latitude",

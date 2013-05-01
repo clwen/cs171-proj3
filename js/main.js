@@ -97,6 +97,7 @@ var highlightCommuteMode = function(hl) { //highlight is not maintained when are
         // Highlight the bar chart
         $("#bar rect")
             .css("fill", "#999");
+        console.log(abbrToWord[hl]);
         $("#" + abbrToWord[hl] + " rect")
             .css("fill", comColors[hl]);
     }
@@ -105,4 +106,5 @@ var highlightCommuteMode = function(hl) { //highlight is not maintained when are
 $(document).ready( function() {
     scrolling();
     renderBarchart("count");
+
 });

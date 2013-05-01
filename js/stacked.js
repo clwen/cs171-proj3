@@ -87,6 +87,12 @@ function renderBarchart(datatype){
           .attr("height", function(d) { return y0.rangeBand() - y1(d.COUNT); })
           .attr("class", function(d){return d.AFFILIATION_CODE}); 
 
+      if (selectedMode !== "all") {
+        highlightCommuteMode(selectedMode);
+      } else if(selectedAff != "all"){
+        highlightAffiliation(selectedAff);
+      }
+
       // TOOLTIP
       d3.selectAll("rect")
         .on("mousemove", function (d) {
@@ -207,6 +213,12 @@ function renderBarchart(datatype){
           .attr("width", x.rangeBand())
           .attr("height", function(d) { return y0.rangeBand() - y1(d.PERCENT); })
           .attr("class", function(d){return d.AFFILIATION_CODE});
+
+      if (selectedMode !== "all") {
+        highlightCommuteMode(selectedMode);
+      } else if(selectedAff != "all"){
+        highlightAffiliation(selectedAff);
+      }
 
       // TOOLTIP
       d3.selectAll("rect")

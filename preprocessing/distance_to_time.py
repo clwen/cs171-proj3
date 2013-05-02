@@ -10,9 +10,9 @@ CARPOOL_SPEED = 0.4693
 SHT_SPEED = 0.4693
 
 if __name__ == "__main__":
-    dis_reader = csv.reader(open("mit-commuter-data.csv"))
+    dis_reader = csv.reader(open("../data/mit-commuter-data.csv"))
     dis_reader.next() # skip header row
-    tim_writer = csv.writer(open("mit-commuter-data-time", 'w'))
+    tim_writer = csv.writer(open("../data/mit-commuter-data-time", 'w'))
     tim_writer.writerow(["Count", "Affiliation", "Area", "Commute Type", "County", "Distance", "Time"]) # write header row
     for line in dis_reader:
         count = float(line[0])

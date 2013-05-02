@@ -6,7 +6,7 @@ import random
 bdic = {} # buckets dictionary
 
 if __name__ == "__main__":
-    ind_reader = csv.reader(open("confidential.csv"))
+    ind_reader = csv.reader(open("../data/confidential.csv"))
     ind_reader.next() # skip header row
     for line in ind_reader:
         fips = line[-2] # FIPS code
@@ -57,7 +57,7 @@ if __name__ == "__main__":
         else:
             bdic[bkey].append(point)
 
-    bu_writer = csv.writer(open("mode_buckets.csv", 'w')) # bucket writer
+    bu_writer = csv.writer(open("../data/mode_buckets.csv", 'w')) # bucket writer
     bu_writer.writerow(["Latitude", "Longitude", "Mode", "FIPS", "Distance"])
     for k, points in bdic.iteritems():
         step = 5

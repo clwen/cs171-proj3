@@ -6,7 +6,7 @@ import json
 all_dic = {"ALL": {"count": 0, "dist": 0, "time": 0}}
 
 if __name__ == "__main__":
-    ind_reader = csv.reader(open("mit-commuter-data-time.csv"))
+    ind_reader = csv.reader(open("../data/mit-commuter-data-time.csv"))
     ind_reader.next() # skip header row
     for line in ind_reader:
         count = int(line[0])

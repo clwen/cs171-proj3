@@ -8,7 +8,7 @@ import csv
 ddic = {}
 
 if __name__ == "__main__":
-    conf_reader = csv.reader(open("confidential.csv")) # confidential reader
+    conf_reader = csv.reader(open("../data/confidential.csv")) # confidential reader
     conf_reader.next() # skip header row
     for line in conf_reader:
         dist = int(float(line[-1]))
@@ -49,7 +49,7 @@ if __name__ == "__main__":
     # for d, items in ddic.iteritems():
     #     print d, items
 
-    grp_writer = csv.writer(open("dist_grouped.csv", 'w'))
+    grp_writer = csv.writer(open("../data/dist_grouped.csv", 'w'))
     modes = ["WLK", "BIC", "T", "DRV", "CARPOOL"]
     grp_writer.writerow(["Distance"] + modes + ["Total"]) # write header row
     for d in range(11):

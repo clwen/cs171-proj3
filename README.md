@@ -18,18 +18,18 @@
 
 There are mainly three parts of the visualization: map, bar chart and area chart.
 
-* Map
-    * County paths defined in `index.html`
-    * Interactions defined in `main.js`
-    * Styles defined in `style.css`
-* Bar chart
-    * Menus and svg defined in `index.html`
-    * Interactions defined in `barchart.js`
-    * Styles defined in `style.css`
-* Area chart
-    * Menus and svg defined in `index.html`
-    * Interactions defined in `area.js`
-    * Styles defined in `area.css`
+* `index.html` serves for the HTML scaffolding and page description
+* Styles for all three views are consolidated in a single `css/style.css`
+* Common variables and interactions defined in `js/main.js`
+* Map interactions are defined in `js/map.js`
+* Bar chart interactions are defined in `js/stacked.js`
+* Stacked area chart interactions are defined in `js/area.js`
+
+---
+
+#### Date files and import methods
+
+`data/mit-commuter-data.csv` is used in the code. It is imported by `d3.csv` method.
 
 ---
 
@@ -50,17 +50,15 @@ There are mainly three parts of the visualization: map, bar chart and area chart
 
 ---
 
-#### Date files and import methods
-
-`data/mit-commuter-data.csv` is used in the code. It is imported by `d3.csv` method.
-
----
-
-#### Code referenced
+#### Code and example referenced
 
 * [Boston apartment price maps](http://www.jefftk.com/news/2013-01-29)
+    * Author: Jeff Kaufman
 * [Google Maps API tutorial](https://developers.google.com/maps/documentation/javascript/examples/layer-fusiontables-simple)
-
-
+    * Author: Google Inc.
+* [Stacked area chart](http://bl.ocks.org/mbostock/3885211)
+    * Author: Mike Bostock
+* [Stacked-to-Multiples](http://bl.ocks.org/mbostock/4679202)
+    * Author: Mike Bostock
 
 

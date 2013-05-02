@@ -12,8 +12,18 @@ html, body{
   line-height: 1.4;
 }
 
+/*body{
+  padding-top: 60px;
+}*/
+
 form{
   margin-bottom: 0px;
+}
+
+.brand, .nav{
+  font-family: 'Lato', sans-serif;
+  font-style: normal;
+  font-weight: 900;
 }
 
 .container{

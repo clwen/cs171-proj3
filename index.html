@@ -25,7 +25,7 @@
   </head>
 
   <body>
-    <div class="navbar navbar-inverse navbar-fixed-bottom">
+    <div class="navbar navbar-inverse navbar-static-top">
       <div class="navbar-inner">
         <div class="container-fluid">
           <a class="brand" href="#">MIT Residential Footprint</a>
@@ -148,22 +148,22 @@
           <div class="span12">
             <a id="about"><fieldset><legend>About</legend></fieldset></a> 
             <p>
-              The choices that we make in our daily routines have a significant broader impact on the wider community, economy, and environment. As individuals, we have a limited view of our residential footprint - however, large organizations (such as educational institutions and companies) have the potential to understand commuter behavior from a larger perspective and implement policies that may influence and incentivize individual choices and behaviors. Given the dataset that we have about the MIT community, we see the opportunity to use MIT as a case study for how to describe, visualize, and understand community behaviors within the context of a large structured institution. The insights that are gained from this visualization may also have broader implications with respect to urban planning, organizational budgeting, and political policy. 
+              The choices that we make in our daily routines have a significant impact on the surrounding community, economy, and environment. As individuals, we have a limited view of our residential footprint - however, large organizations (such as educational institutions and companies) have the potential to understand commuter behavior from a broader perspective and implement policies that may influence and incentivize individual choices and behaviors. Given the dataset that we have about the MIT community, we see the opportunity to use MIT as a case study for how to describe, visualize, and understand community behaviors within the context of a large structured institution. This visualization dashboard aims to identify insights and opportunities for broader impact from the perspective of urban planning, organizational budgeting, and political policy. 
             </p>
             <p>
               Visualizations and webpage by: Chunglin Wen and Amy (Zhao) Yu
             </p>
             <a id="data"><fieldset><legend>Data</legend></fieldset></a> 
             <p>
-              The primary data source for this visualization is the MIT Commuter Common dataset created by Ira Winder from the Changing Places group at MIT Media Lab. This data is contains demographic and survey data for 2012 from the entire MIT community related to commuting choices and geographic location. Due to data privacy concerns, the data is provided at an aggregated level and is not available at level of individual granularity. Secondary geographic data overlays source data from Padmapper (for housing rental prices) and Google Maps (for bike and transit map data). 
+              The primary data source for this visualization is the MIT Commuter Common dataset created by Ira Winder from the Changing Places group at MIT Media Lab. This data is contains demographic and survey data for 2012 from the entire MIT community related to commuting choices and geographic location. Due to data privacy concerns, the data is provided at an aggregated level and is not available at the level of individual granularity. Secondary geographic data overlays source data from Padmapper (for housing rental prices) and Google Maps (for bike and transit map data). 
             </p>
             <a id="guide"><fieldset><legend>Guide</legend></fieldset></a>
             <dl class="dl-horizontal">
-              <dt>Data Map: MIT affiliates within Massachusetts</dt>
-              <dd>The map above shows the state of Massachusetts divided into county areas. The bubble overlay encodes population data - when you hover over a specific commuting method within the stacked area chart, the bubbles are linked to the interaction and will automatically resize proportionally to allow for visual comparison of various MIT commuter populations.</dd>
-              <dt>Data Bars: Details by Affiliation and Commute Mode</dt>
-              <dd>The bar chart shows the demographic distribution of the population being analyzed. Users may select a specific county area within Massachusetts by clicking on the county of interest to update the bar chart to show the demographic breakdown filtered by a single county. Hover over the bars within the barchar to expose details on demand for one specific demographic group. </dd>
-              <dt>Stacked Area: Commuter Modalities by Distance to MIT Campus</dt>
+              <dt>Data Map</dt>
+              <dd>The map above shows MIT affiliates within Massachusetts. The bubble overlay encodes population data - when you hover over a specific commuting method within the stacked area chart, the bubbles are linked to the interaction and will automatically resize proportionally to allow for visual comparison of various MIT commuter populations.</dd>
+              <dt>Data Bars</dt>
+              <dd>The bar chart shows further details by Affiliation and Commute Mode. the demographic distribution of the population being analyzed. Users may select a specific county area within Massachusetts by clicking on the county of interest to update the bar chart to show the demographic breakdown filtered by a single county. Hover over the bars within the barchar to expose details on demand for one specific demographic group. </dd>
+              <dt>Stacked Area</dt>
               <dd>The stacked area chart shows various commuter modes based on distance from campus. Hover over a given commute mode to highlight the corresponding area and update the bubble overlay and show the linkage between geographic distribution and commute mode. When a specific county is highlighted on the Massachusetts map, the relevant distance interval is highlighted on the stacked area chart to highlight the relevant distribution of commute modes.</dd>
             </dl>
             <a id="examples"><fieldset><legend>Demo</legend></fieldset></a>

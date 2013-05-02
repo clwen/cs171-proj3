@@ -41,13 +41,13 @@
         <div class = "span3">
           <div class="pagination"><!--use this for storytelling-->
             <ul>
-              <li><a href="#" onclick="alert('Hello World!');">1</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
+              <li><a id="story1">1</a></li>
+              <li><a id="story2">2</a></li>
+              <li><a id="story3">3</a></li>
               <li><a href="#">4</a></li>
               <li><a href="#">5</a></li>
               <li><a href="#">6</a></li>
-              <li><a href="#">Explore</a></li>
+              <li><a id="explore">Explore</a></li>
             </ul>
             <br>
               <form onclick="filtered = false; showOverlays(); document.getElementById('barmode').reset(); document.getElementById('areamode').reset(); 
@@ -99,10 +99,10 @@
             <div class = "sectiontitle"><b>Details by Affiliation and Commute Mode</b><br/></div>
             <form id='barmode' class = "pull-left">
               <label class="radio inline">
-                <input type="radio" class = "chartmode" name="mode" value="multiples" checked> Multiples
+                <input type="radio" class = "chartmode" name="stackmode" value="multiples" checked> Multiples
               </label>
               <label class="radio inline">
-                <input type="radio" class = "chartmode" name="mode" value="stacked"> Stacked
+                <input type="radio" class = "chartmode" name="stackmode" value="stacked"> Stacked
               </label>
             </form>
             <form onclick="document.getElementById('barmode').reset(); 

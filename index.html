@@ -129,9 +129,8 @@
         <div class="row-fluid">
           <div class="span12" id="area" data-intro="The stacked area chart shows the relation between distance and commute modes used." data-step='6'>
             <div class = "sectiontitle"><b>Stacked Area: Commuter Modalities by Distance to MIT Campus</b></div>
-            <div id="area-chart"></div>
-            <span id="area-legend"></span>
-            <div id="area-toggle">
+            <span id="area-legend" class="pull-right"></span>
+            <div id="area-toggle" class="pull-left">
               <form id="areamode">
                 <label class="radio inline">
                   <input type="radio" name="repr" value="number">Count
@@ -140,9 +139,10 @@
                   <input type="radio" name="repr" value="percentage" checked>Percentage
                 </label>
               </form>
-            </div>
-          </div>
-        </div>
+            </div><!--/area-toggle-->
+            <div id="area-chart"></div>
+          </div><!--/span12-->
+        </div><!--/row-fluid-->
 
         <div class="row-fluid">
           <div class="span12">

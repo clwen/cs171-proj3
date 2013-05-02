@@ -209,7 +209,7 @@ var resetAll = function(){
     }
     document.getElementById('mapOptions').reset();
     map.setZoom(12);
-    map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
+    map.setMapTypeId(google.maps.MapTypeId.TERRAIN);
     showOverlays();
     updateHeader();
     $("#area").css("visibility","visible");

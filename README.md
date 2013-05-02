@@ -29,7 +29,10 @@ There are mainly three parts of the visualization: map, bar chart and area chart
 
 #### Date files and import methods
 
-`data/mit-commuter-data.csv` is used in the code. It is imported by `d3.csv` method.
+* `data/mode_buckets.csv` and `data/aff_buckets.csv` are used to plot the data on the map. They have been uploaded to Google Fusion Table and accessed through the Google Fusion Table API.
+* `data/commutes-by-area-aff.csv` and `data/commutes-by-area-mode.csv` are used in stacked bar chart. They are accessed through `d3.csv` method.
+* `data/dist_grouped.csv` is used in stacked area chart. It is accessed by `d3.csv` method.
+* `data/mit-commuter-data-time.csv` is used to calculate the aggregated distance and time used in the header. It is preprocessed by `aggregate_dist_time.py` to a `JSON` and embodied in `main.js`.
 
 ---
 

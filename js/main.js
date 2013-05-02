@@ -207,6 +207,7 @@ $(document).ready( function() {
     renderBarchart("count");
     updateHeader();
 
+    // STORY ELEMENTS
     $('#story1').click(function() {
         resetAll();
         //$('input:radio[name="datatype"][value="percent"]').click();

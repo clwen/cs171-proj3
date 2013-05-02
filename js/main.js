@@ -123,38 +123,38 @@ var updateHeader = function() {
         $("#ppl").html("MIT community members");
         $("#time").html(aggDic["ALL"].time);
         $("#dist").html(aggDic["ALL"].dist);
-        $("#funfact").html("It is about five times as long as equator.");
+        $("#funfact").html("which is about five times as long as equator.");
     } else if (selectedMode !== "all") { // filter according to mode
         if (selectedMode === "WLK") {
             $("#count").html(aggDic["WLK"].count);
-            $("#ppl").html("MIT members choose to walk");
+            $("#ppl").html("MIT walkers");
             $("#time").html(aggDic["WLK"].time);
             $("#dist").html(aggDic["WLK"].dist);
-            $("#funfact").html("It is about 94 times as long as Boston Marathon.");
+            $("#funfact").html("which is about 94 times as long as Boston Marathon.");
         } else if (selectedMode === "BIC") {
             $("#count").html(aggDic["BIC"].count);
-            $("#ppl").html("MIT members choose to bike");
+            $("#ppl").html("MIT bikers");
             $("#time").html(aggDic["BIC"].time);
             $("#dist").html(aggDic["BIC"].dist);
-            $("#funfact").html("It is about 1.43 times as long as the 2013 Tour de France.");
+            $("#funfact").html("which is about 1.43 times as long as the 2013 Tour de France.");
         } else if (selectedMode === "T") {
             $("#count").html(aggDic["T"].count);
-            $("#ppl").html("MIT members take T");
+            $("#ppl").html("MIT members who take the T");
             $("#time").html(aggDic["T"].time);
             $("#dist").html(aggDic["T"].dist);
-            $("#funfact").html("It is about 38 times as long as the whole MBTA system.");
+            $("#funfact").html("which is about 38 times as long as the whole MBTA system.");
         } else if (selectedMode === "DRV") {
             $("#count").html(aggDic["DRV"].count);
-            $("#ppl").html("MIT members who drive");
+            $("#ppl").html("MIT drivers");
             $("#time").html(aggDic["DRV"].time);
             $("#dist").html(aggDic["DRV"].dist);
-            $("#funfact").html("It is about 23 times as long as the distance from Boston to San Francisco.");
+            $("#funfact").html("which is about 23 times as long as the distance from Boston to San Francisco.");
         } else if (selectedMode === "CARPOOL") {
             $("#count").html(aggDic["CARPOOL"].count);
-            $("#ppl").html("MIT members who use carpool");
+            $("#ppl").html("MIT members who choose to carpool");
             $("#time").html(aggDic["CARPOOL"].time);
             $("#dist").html(aggDic["CARPOOL"].dist);
-            $("#funfact").html("It is about 17 times as long as the distance from Boston to New York.");
+            $("#funfact").html("which is about 17 times as long as the distance from Boston to New York.");
         } else {
             console.log("there is no commute mode " + selectedMode);
         }
@@ -254,7 +254,6 @@ $(document).ready( function() {
         resetAll();
         filterMap("WLK", "Mode");
         highlightCommuteMode("WLK");
-        $('input:radio[name="mode"][value="transit"]').click();
         $('input:radio[name="datatype"][value="percent"]').click();
         $(".well").html("<p>Despite Cambridge’s very high <a href='http://www.walkscore.com/MA/Cambridge'>walk score</a>, only students living within 5 kilometers of campus tend to choose to commute by walking.</p>");
     });

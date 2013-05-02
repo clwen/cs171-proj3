@@ -33,6 +33,16 @@ form{
   color: #ffffff;
 }
 
+#time, #dist{
+  font-size: 20px;
+  font-weight: 900;
+  text-decoration: underline;
+}
+
+#funfact{
+  font-style: italic;
+}
+
 h1, h2, h3 {
   font-family: 'Open Sans', sans-serif;
 }

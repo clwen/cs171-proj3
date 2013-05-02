@@ -233,32 +233,23 @@ var show_number = function() {
     }); // end of d3.csv
 };
 
+var renderAreaChart = function(mode) {
+    d3.select("#area-chart svg").remove();
+    if (mode === "percentage") {
+            show_percentage();
+        } else if (mode === "number") {
+            show_number();
+        }
+}
+
 $(document).ready(function() {
     // toggle between raw number and percentage
     $('input:radio[name=repr]').click(function() {
-        var mode = $('input:radio[name=repr]:checked').val();
-        if (mode === "percentage") {
-            d3.select("#area-chart svg")
-                .remove();
-            show_percentage();
-        } else if (mode === "number") {
-            d3.select("#area-chart svg")
-                .remove();
-            show_number();
-        }
+        renderAreaChart($('input:radio[name=repr]:checked').val());
     });
     // Rerender the area chart when data grouping is toggled
     $('input:radio[name=category]').click(function() {
-        var mode = $('input:radio[name=repr]:checked').val();
-        if (mode === "percentage") {
-            d3.select("#area-chart svg")
-                .remove();
-            show_percentage();
-        } else if (mode === "number") {
-            d3.select("#area-chart svg")
-                .remove();
-            show_number();
-        }
+        renderAreaChart($('input:radio[name=repr]:checked').val());
     });
 
     show_percentage();

@@ -188,8 +188,37 @@ var updateHeader = function() {
     }
 };
 
+var resetAll = function(){
+    if(filtered){
+        if(filterType == "Affiliation"){
+            highlightAffiliation("CLEAR");
+        }
+        else if(filterType == "Mode"){
+            highlightCommuteMode("CLEAR");
+        }
+    }
+    showOverlays();
+    updateHeader();
+}
+
 $(document).ready( function() {
     scrolling();
     renderBarchart("count");
     updateHeader();
+
+    $('#story1').click(function() {
+        resetAll();
+        filterMap("T", "Mode");
+        highlightCommuteMode("T");
+    });
+    $('#story2').click(function() {
+        resetAll();
+        filterMap("DRV", "Mode");
+        highlightCommuteMode("DRV");
+    });
+    $('#explore').click(function() {
+        resetAll();
+    });
+
+
 });

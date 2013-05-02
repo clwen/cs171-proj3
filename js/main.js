@@ -224,6 +224,7 @@ $(document).ready( function() {
     $('#story1').click(function() {
         resetAll();
         //$('input:radio[name="datatype"][value="percent"]').click();
+        $('input:radio[name="category"][value="COMMUTE"]').click();
         filterMap("T", "Mode");
         highlightCommuteMode("T");
         map.setMapTypeId(google.maps.MapTypeId.TERRAIN);
@@ -233,6 +234,7 @@ $(document).ready( function() {
 
     $('#story2').click(function() {
         resetAll();
+        $('input:radio[name="category"][value="COMMUTE"]').click();
         filterMap("DRV", "Mode");
         highlightCommuteMode("DRV");
         $('input:radio[name="mode"][value="transit"]').click();
@@ -243,6 +245,7 @@ $(document).ready( function() {
 
     $('#story3').click(function() {
         resetAll();
+        $('input:radio[name="category"][value="COMMUTE"]').click();
         filterMap("CARPOOL", "Mode");
         highlightCommuteMode("CARPOOL");
         map.setZoom(10);
@@ -252,6 +255,7 @@ $(document).ready( function() {
     
     $('#story4').click(function() {
         resetAll();
+        $('input:radio[name="category"][value="COMMUTE"]').click();
         filterMap("WLK", "Mode");
         highlightCommuteMode("WLK");
         $('input:radio[name="datatype"][value="percent"]').click();

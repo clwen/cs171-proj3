@@ -28,7 +28,7 @@
     <div class="navbar navbar-inverse navbar-fixed-bottom">
       <div class="navbar-inner">
         <div class="container-fluid">
-          <a class="brand" href="#">MIT Commuters</a>
+          <a class="brand" href="#">MIT Residential Footprint</a>
             <ul class="nav .navbar-text">
               <li><a href="#dashboard">Dashboard</a></li>
               <li><a href="#about">About</a></li>
@@ -43,7 +43,7 @@
     <div class="container" id="dashboard">
       <div class="row-fluid">
         <div class="span4">
-          <div class="pagination pagination-centered" data-intro="This is the story telling navigation bar. This will guide you through some interesting patterns" data-step='1'><!--use this for storytelling-->
+          <div class="pagination pagination-centered" data-intro="This is the story telling navigation bar. This will guide you through some interesting storylines." data-step='1'><!--use this for storytelling-->
             <ul>
               <li><a href="#" id="story1">1</a></li>
               <li><a href="#" id="story2">2</a></li>
@@ -51,7 +51,7 @@
               <li><a href="#" id="story4">4</a></li>
               <li><a href="#" id="story5">5</a></li>
               <li><a href="#" id="story6">6</a></li>
-              <li><a href="#" id="explore" data-intro="Of course you can also choose to explore by yourself" data-step='2'>Explore</a></li>
+              <li><a href="#" id="explore" data-intro="Of course you can also choose to explore by yourself!" data-step='2'>Explore</a></li>
               <li><a href="#" id="help" class="help-trigger" data-intro="That's it! You can click here to play this message again." data-step='7'>?</a></li>
             </ul>
             <br>
@@ -77,7 +77,7 @@
       </div><!--/row-->
 
       <div class="row-fluid">
-        <div class="maps span7" data-intro="The map shows the geographical distribution of data points. Will be updated while following stories or interacting with control panels. You can also click on a point to select points from the same group." data-step='4'>
+        <div class="maps span7" data-intro="The map shows the geographical distribution of data points. Click on any point to select the group that it belongs to - the other graphs will dynamically update based on your selection. To reset your selection, click anywhere on the map itself." data-step='4'>
           <div class = "sectiontitle"><b>Data Map: MIT affiliates within Massachusetts - each dot = 5 people</b></div>
           <!-- width="892.6" height="545.8"  -->
           <div>
@@ -100,7 +100,7 @@
         </div><!--/span7-->
 
           <!-- SMALL MULTIPLES BARCHART --> 
-          <div class="span5" data-intro="Bar charts show the demographic data and commute modes used." data-step='5'>
+          <div class="span5" data-intro="The bar charts show the demographic data and commute modes used. You can select whether to show the data as percents or population counts. Toggle between a small multiples view, or a stacked bar view." data-step='5'>
             <div class = "sectiontitle"><b>Details by Affiliation and Commute Mode</b><br/></div>
             <form id='barmode' class = "pull-left">
               <label class="radio inline">
@@ -128,7 +128,7 @@
 
         <!-- AREA CHART --> 
         <div class="row-fluid">
-          <div class="span12" id="area" data-intro="Stacked area charts show the relation between distance and commute modes used." data-step='6'>
+          <div class="span12" id="area" data-intro="The stacked area chart shows the relation between distance and commute modes used." data-step='6'>
             <div class = "sectiontitle"><b>Commuter Modalities by Distance to MIT Campus</b></div>
             <div id="area-chart"></div>
             <span id="area-legend"></span>

@@ -152,6 +152,7 @@ var resetAll = function(){
             highlightCommuteMode("CLEAR");
         }
     }
+    document.getElementById('mapOptions').reset();
     showOverlays();
     updateHeader();
 }
@@ -163,17 +164,44 @@ $(document).ready( function() {
 
     $('#story1').click(function() {
         resetAll();
+        //$('input:radio[name="datatype"][value="percent"]').click();
         filterMap("T", "Mode");
         highlightCommuteMode("T");
+        $('input:radio[name="stackmode"][value="stacked"]').click();
     });
     $('#story2').click(function() {
         resetAll();
         filterMap("DRV", "Mode");
         highlightCommuteMode("DRV");
+        $('input:radio[name="mode"][value="transit"]').click();
+        $('input:radio[name="stackmode"][value="multiples"]').click();
+        showOverlays();
+    });
+    $('#story3').click(function() {
+        resetAll();
+        filterMap("CARPOOL", "Mode");
+        highlightCommuteMode("CARPOOL");
+        $('input:radio[name="stackmode"][value="multiples"]').click();
+    });
+
+    
+    $('#story4').click(function() {
+        resetAll();
+        filterMap("WLK", "Mode");
+        highlightCommuteMode("WLK");
+        $('input:radio[name="mode"][value="transit"]').click();
+        $('input:radio[name="datatype"][value="percent"]').click();
+    });
+    $('#story5').click(function() {
+        resetAll();
+        filterMap("U", "Affiliation");
+        highlightAffiliation("U");
+        $('input:radio[name="mode"][value="housing"]').click();
+        $('input:radio[name="stackmode"][value="multiples"]').click();
+        showOverlays();
     });
     $('#explore').click(function() {
         resetAll();
     });
-
 
 });

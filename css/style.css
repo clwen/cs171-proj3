@@ -12,9 +12,13 @@ html, body{
   line-height: 1.4;
 }
 
-/*body{
-  padding-top: 60px;
-}*/
+#backtotop {
+  position: fixed;
+  right:0px;
+  bottom:15px;
+  display:none;
+}
+
 
 form{
   margin-bottom: 0px;
@@ -38,10 +42,6 @@ form{
   border-width:5px;
 }
 
-/*.navbar{
-  background-color: #993333;
-  color: #ffffff;
-}*/
 
 #time, #dist{
   font-size: 20px;

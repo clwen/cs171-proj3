@@ -61,11 +61,9 @@ var aggDic = {
 function scrolling() {
     $('ul.nav a').bind('click',function(event){
     var anchor = $(this);
-
     $('html, body').stop().animate({
         scrollTop: $(anchor.attr('href')).offset().top
     }, 1000);
-    
     event.preventDefault();
     });
 }
@@ -297,4 +295,22 @@ $(document).ready( function() {
         resetAll();
         introJs().start();
     });
+
+    //back to top
+    var showLink = 100;
+    var fadeIn = 1000;
+    var fadeOut = 1000;
+    $(window).scroll(function(){
+        if($(window).scrollTop() >= showLink){
+            $("#backtotop").fadeIn(fadeIn);
+        }else{
+            $("#backtotop").fadeOut(fadeOut);
+        }
+    });
+    $('#backtotop a').click(function(){
+        $('html, body').animate({scrollTop:0}, 1000);
+        return false;
+    });
+
+
 });

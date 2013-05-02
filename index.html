@@ -7,7 +7,7 @@
     <script src="js/jquery-1.9.1.js"></script>
     <script src="js/d3.v3.min.js"></script>
     <script src="js/intro.min.js"></script>
-    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAjD3wP0Wog_xQ2AxYMPiXmLEfpG9mxWAs&sensor=false"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAjD3wP0Wog_xQ2AxYMPiXmLEfpG9mxWAs&amp;sensor=false"></script>
     <!--Custom Javascript-->
     <script type="text/javascript" src="js/map.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
@@ -64,7 +64,7 @@
                     <input type="radio" name="category" value="AFFILIATION">Affiliation
                   </label>
                   <label class="radio inline">
-                    <input type="radio" name="category" value="COMMUTE"checked>Commute Mode
+                    <input type="radio" name="category" value="COMMUTE" checked>Commute Mode
                   </label>
               </form>
           </div><!--/pagination-->
@@ -83,13 +83,13 @@
           <div>
             <form id="mapOptions">
               <label class="radio inline">
-              <input onclick="showOverlays(); "type="radio" name="mode" value="transit">Public Transit
+              <input onclick="showOverlays();" type="radio" name="mode" value="transit">Public Transit
               </label>
               <label class="radio inline">
-              <input onclick="showOverlays(); "type="radio" name="mode" value="bike">Bike Routes
+              <input onclick="showOverlays();" type="radio" name="mode" value="bike">Bike Routes
               </label>
               <label class="radio inline">
-              <input onclick="showOverlays(); "type="radio" name="mode" value="housing">Housing Price
+              <input onclick="showOverlays();" type="radio" name="mode" value="housing">Housing Price
               </label>
               <input class = "pull-right" onclick="document.getElementById('mapOptions').reset(); clearOverlays();" type=button value="Hide Overlay">
             </form>
@@ -169,7 +169,6 @@
             </dl>
             <a id="examples"><fieldset><legend>Demo</legend></fieldset></a>
             <iframe width="560" height="315" src="http://www.youtube.com/embed/Jyfm55AIIhc"></iframe>
-          </span> <!--span-->
         </div> <!--row-->
       </div>
     </div>

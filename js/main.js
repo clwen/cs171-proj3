@@ -44,18 +44,18 @@ var comColors = {
 };
 
 var aggDic = {
-    "ALL": {"count": 12598, "dist": 202371.6037862508, "time": 381621.3923733227}, 
-    "WLK": {"count": 2298, "dist": 3977.2141806018744, "time": 47745.66843456179}, 
-    "BIC": {"count": 1207, "dist": 4806.440198730774, "time": 12016.100496832001}, 
-    "T": {"count": 5025, "dist": 72630.05245335559, "time": 136189.86021634276},
-    "DRV": {"count": 3630, "dist": 114275.02876874004, "time": 171429.68612177295}, 
-    "CARPOOL": {"count": 239, "dist": 6048.949266858281, "time": 12889.30165534954}, 
-    "SHT": {"count": 199, "dist": 633.9189179643259, "time": 1350.7754484636998}, 
-    "U": {"count": 2102, "dist": 3192.4317973732527, "time": 22750.521904527508}, 
-    "G": {"count": 3276, "dist": 14500.511186471966, "time": 45551.998557953506}, 
-    "F": {"count": 774, "dist": 16980.2829961154, "time": 27572.751660188802}, 
-    "A": {"count": 1642, "dist": 54657.111147355005, "time": 90269.94654855637}, 
-    "AS": {"count": 4804, "dist": 113041.2666589353, "time": 195476.1737020966}, 
+    "ALL": {"count": 12598, "dist": 202372, "time": 381621}, 
+    "WLK": {"count": 2298, "dist": 3977, "time": 47746}, 
+    "BIC": {"count": 1207, "dist": 4806, "time": 12016}, 
+    "T": {"count": 5025, "dist": 72630, "time": 136190},
+    "DRV": {"count": 3630, "dist": 114275, "time": 171430}, 
+    "CARPOOL": {"count": 239, "dist": 6049, "time": 12889}, 
+    "SHT": {"count": 199, "dist": 634, "time": 1351}, 
+    "U": {"count": 2102, "dist": 3192, "time": 22751}, 
+    "G": {"count": 3276, "dist": 14501, "time": 45552}, 
+    "F": {"count": 774, "dist": 16980, "time": 27573}, 
+    "A": {"count": 1642, "dist": 54657, "time": 90270}, 
+    "AS": {"count": 4804, "dist": 113041, "time": 195476}, 
 };
 
 function scrolling() {
@@ -119,9 +119,23 @@ var highlightCommuteMode = function(hl) { //highlight is not maintained when are
 
 var updateHeader = function() {
     if ((selectedMode === "all") && (selectedAff === "all")) { // no filter applied
-        console.log(aggDic["ALL"]);
+        $("#count").html(aggDic["ALL"].count);
+        $("#ppl").html("MIT community members");
+        $("#time").html(aggDic["ALL"].time);
+        $("#dist").html(aggDic["ALL"].dist);
     } else if (selectedMode !== "all") { // filter according to mode
-        console.log("lets show " + selectedMode);
+        console.log(selectedMode);
+        if (selectedMode === "WLK") {
+            $("#count").html(aggDic["WLK"].count);
+            $("#ppl").html("people choose to walk");
+            $("#time").html(aggDic["WLK"].time);
+            $("#dist").html(aggDic["WLK"].dist);
+        } else if (selectedMode === "BIC") {
+            $("#count").html(aggDic["BIC"].count);
+            $("#ppl").html("people choose to bike");
+            $("#time").html(aggDic["BIC"].time);
+            $("#dist").html(aggDic["BIC"].dist);
+        }
     } else if (selectedAff !== "all") { // filter according to mode
         console.log("lets show " + selectedAff);
     } else {

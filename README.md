@@ -1,4 +1,4 @@
-### CS171 Project 3: Commuting Modalities at MIT
+### CS171 Project 3: The Residential Footprint of MIT
 
 #### About
 * Authors: Chunglin Wen, Amy Yu (sorted by lastname)
@@ -37,12 +37,16 @@ There are mainly three parts of the visualization: map, bar chart and area chart
 
 * [D3](http://d3js.org/)
     * Use local version under `js`
+* [Google Maps API](https://developers.google.com/maps/)
+    * Use CDN hosted version
 * [jQuery](http://jquery.com/)
     * Use local version under `js`
 * [Bootstrap](http://twitter.github.io/bootstrap/)
     * Use local version under `js` and `css` directories
 * [Underscore](http://underscorejs.org/)
     * Use local version under `js` directory
+* [intro.js](http://usablica.github.io/intro.js/)
+    * Use local version under `js` and `css` directory
 
 ---
 
@@ -52,8 +56,11 @@ There are mainly three parts of the visualization: map, bar chart and area chart
 
 ---
 
-#### Gotchas
+#### Code referenced
 
-* If hovering commuting methods in area chart doesn't update the bubbles on the map, please refresh the browser (also make sure it clears the Javascript and CSS cache) several times 
-    * (`Shift + Command + R` if on a MAC OS) 
+* [Boston apartment price maps](http://www.jefftk.com/news/2013-01-29)
+* [Google Maps API tutorial](https://developers.google.com/maps/documentation/javascript/examples/layer-fusiontables-simple)
+
+
+
 

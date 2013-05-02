@@ -123,63 +123,72 @@ var updateHeader = function() {
         $("#ppl").html("MIT community members");
         $("#time").html(aggDic["ALL"].time);
         $("#dist").html(aggDic["ALL"].dist);
+        $("#funfact").html("It is about five times as long as equator.");
     } else if (selectedMode !== "all") { // filter according to mode
-        console.log(selectedMode);
         if (selectedMode === "WLK") {
             $("#count").html(aggDic["WLK"].count);
             $("#ppl").html("MIT members choose to walk");
             $("#time").html(aggDic["WLK"].time);
             $("#dist").html(aggDic["WLK"].dist);
+            $("#funfact").html("It is about 94 times as long as Boston Marathon.");
         } else if (selectedMode === "BIC") {
             $("#count").html(aggDic["BIC"].count);
             $("#ppl").html("MIT members choose to bike");
             $("#time").html(aggDic["BIC"].time);
             $("#dist").html(aggDic["BIC"].dist);
+            $("#funfact").html("It is about 1.43 times as long as the 2013 Tour de France.");
         } else if (selectedMode === "T") {
             $("#count").html(aggDic["T"].count);
             $("#ppl").html("MIT members take T");
             $("#time").html(aggDic["T"].time);
             $("#dist").html(aggDic["T"].dist);
+            $("#funfact").html("It is about 38 times as long as the whole MBTA system.");
         } else if (selectedMode === "DRV") {
             $("#count").html(aggDic["DRV"].count);
             $("#ppl").html("MIT members who drive");
             $("#time").html(aggDic["DRV"].time);
             $("#dist").html(aggDic["DRV"].dist);
+            $("#funfact").html("It is about 23 times as long as the distance from Boston to San Francisco.");
         } else if (selectedMode === "CARPOOL") {
             $("#count").html(aggDic["CARPOOL"].count);
             $("#ppl").html("MIT members who use carpool");
             $("#time").html(aggDic["CARPOOL"].time);
             $("#dist").html(aggDic["CARPOOL"].dist);
+            $("#funfact").html("It is about 17 times as long as the distance from Boston to New York.");
         } else {
             console.log("there is no commute mode " + selectedMode);
         }
     } else if (selectedAff !== "all") { // filter according to mode
-        console.log("lets show " + selectedAff);
         if (selectedAff === "U") {
             $("#count").html(aggDic["U"].count);
             $("#ppl").html("MIT undergrads");
             $("#time").html(aggDic["U"].time);
             $("#dist").html(aggDic["U"].dist);
+            $("#funfact").html("The time can be used to solve 126 problem sets if each of them take 3 hours to solve.");
         } else if (selectedAff === "G") {
             $("#count").html(aggDic["G"].count);
             $("#ppl").html("MIT grad students");
             $("#time").html(aggDic["G"].time);
             $("#dist").html(aggDic["G"].dist);
+            $("#funfact").html("The time can be used to publish 8 papers if each of them take 100 hours.");
         } else if (selectedAff === "FAC") {
             $("#count").html(aggDic["F"].count);
             $("#ppl").html("MIT faculty members");
             $("#time").html(aggDic["F"].time);
             $("#dist").html(aggDic["F"].dist);
+            $("#funfact").html("The time can be used to offer 306 sessions of courses if each of them is 90 minutes.");
         } else if (selectedAff === "ADM") {
             $("#count").html(aggDic["A"].count);
             $("#ppl").html("MIT administrative staffs");
             $("#time").html(aggDic["A"].time);
             $("#dist").html(aggDic["A"].dist);
-        } else if (selectedAff === "AS") {
+            $("#funfact").html("The time can be used to read 1505 of reports if each of them requires 60 minutes to read.");
+        } else if ((selectedAff === "AS") || (selectedAff === "SS")) {
             $("#count").html(aggDic["AS"].count);
-            $("#ppl").html("MIT academic staffs");
+            $("#ppl").html("MIT staffs");
             $("#time").html(aggDic["AS"].time);
             $("#dist").html(aggDic["AS"].dist);
+            $("#funfact").html("The time can be used to write 2172 of reports if each of them requires 90 minutes to write.");
         } else {
             console.log("there is no affiliation " + selectedAff);
         }

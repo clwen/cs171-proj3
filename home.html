@@ -35,15 +35,15 @@
               <li><a href="#data">Data</a></li>
               <li><a href="#guide">Guide</a></li>
               <li><a href="#examples">Demo</a></li>
-              <li><a id="help-nav-bar" href="#">Help</a></li>
+              <li><a id="help-nav-bar" class="help-trigger" href="#dashboard">Help</a></li>
             </ul>
         </div>
       </div>
     </div><!--/navbar-->
     <div class="container" id="dashboard">
-      <div class = "row-fluid">
-        <div class = "span4">
-          <div class="pagination pagination-centered"><!--use this for storytelling-->
+      <div class="row-fluid">
+        <div class="span4">
+          <div class="pagination pagination-centered" data-intro="This is the story telling navigation bar. This will guide you through some interesting patterns" data-step='1'><!--use this for storytelling-->
             <ul>
               <li><a href="#" id="story1">1</a></li>
               <li><a href="#" id="story2">2</a></li>
@@ -51,8 +51,8 @@
               <li><a href="#" id="story4">4</a></li>
               <li><a href="#" id="story5">5</a></li>
               <li><a href="#" id="story6">6</a></li>
-              <li><a id="explore">Explore</a></li>
-              <li><a id="help">?</a></li>
+              <li><a href="#" id="explore">Explore</a></li>
+              <li><a href="#" id="help" class="help-trigger">?</a></li>
             </ul>
             <br>
               <form onclick="filtered = false; showOverlays(); document.getElementById('barmode').reset(); document.getElementById('areamode').reset(); 

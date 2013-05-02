@@ -68,18 +68,17 @@
                   </label>
               </form>
           </div><!--/pagination-->
-        </div><!--/span3-->
+        </div><!--/span4-->
         <div class = "span8" data-intro="Stories and interesting facts will be noted here." data-step='3'>
           <div class="well well-small">
             <p>In the course of a day, <span id="count">30</span> <span id="ppl">MIT Community members</span> spend <span id="time">10,000</span> minutes traveling a total distance of <span id="dist">100,000</span> km, <span id="funfact">a distance almost twice as long as equator.</span></p>
           </div>
-        </div><!--/span9-->
+        </div><!--/span8-->
       </div><!--/row-->
 
       <div class="row-fluid">
         <div class="maps span7" data-intro="The map shows the geographical distribution of data points. Click on any point to select the group that it belongs to - the other graphs will dynamically update based on your selection. To reset your selection, click anywhere on the map itself." data-step='4'>
           <div class = "sectiontitle"><b>Data Map: MIT affiliates within Massachusetts - each dot = 5 people</b></div>
-          <!-- width="892.6" height="545.8"  -->
           <div>
             <form id="mapOptions">
               <label class="radio inline">
@@ -94,14 +93,14 @@
               <input class = "pull-right" onclick="document.getElementById('mapOptions').reset(); clearOverlays();" type=button value="Hide Overlay">
             </form>
           </div>
-          <div id="gmap" style="width:695px;height:360px;"></div>
+          <div id="gmap" style="width:690px;height:360px;"></div>
           <div id="legend"></div>
           <div id="hpLegend"></div>
         </div><!--/span7-->
 
           <!-- SMALL MULTIPLES BARCHART --> 
           <div class="span5" data-intro="The bar charts show the demographic data and commute modes used. You can select whether to show the data as percents or population counts. Toggle between a small multiples view, or a stacked bar view." data-step='5'>
-            <div class = "sectiontitle"><b>Details by Affiliation and Commute Mode</b><br/></div>
+            <div class = "sectiontitle"><b>Data Bars: Details by Affiliation and Commute Mode</b><br/></div>
             <form id='barmode' class = "pull-left">
               <label class="radio inline">
                 <input type="radio" class = "chartmode" name="stackmode" value="multiples" checked> Multiples
@@ -129,7 +128,7 @@
         <!-- AREA CHART --> 
         <div class="row-fluid">
           <div class="span12" id="area" data-intro="The stacked area chart shows the relation between distance and commute modes used." data-step='6'>
-            <div class = "sectiontitle"><b>Commuter Modalities by Distance to MIT Campus</b></div>
+            <div class = "sectiontitle"><b>Stacked Area: Commuter Modalities by Distance to MIT Campus</b></div>
             <div id="area-chart"></div>
             <span id="area-legend"></span>
             <div id="area-toggle">
@@ -149,22 +148,22 @@
           <div class="span12">
             <a id="about"><fieldset><legend>About</legend></fieldset></a> 
             <p>
-              Commuting is an activity that almost everyone participates in, and is a central tenet to our everyday lives. The choices that we make as commuters have a significant broader impact on the wider community, economy, and environment. As individuals, we have a limited view of our commuting footprint - however, large organizations (such as educational institutions and companies) have the potential to understand commuter behavior from a larger perspective and implement policies that may influence and incentivize individual commuter behaviors. Given the dataset that we have about the MIT community, we see the opportunity to use MIT as a case study for how to describe, visualize, and understand individual commuters within the context of a large structured institution. The insights that are gained from this visualization may also have broader implications with respect to urban planning, organizational budgeting, and political policy. 
+              The choices that we make in our daily routines have a significant broader impact on the wider community, economy, and environment. As individuals, we have a limited view of our residential footprint - however, large organizations (such as educational institutions and companies) have the potential to understand commuter behavior from a larger perspective and implement policies that may influence and incentivize individual choices and behaviors. Given the dataset that we have about the MIT community, we see the opportunity to use MIT as a case study for how to describe, visualize, and understand community behaviors within the context of a large structured institution. The insights that are gained from this visualization may also have broader implications with respect to urban planning, organizational budgeting, and political policy. 
             </p>
             <p>
               Visualizations and webpage by: Chunglin Wen and Amy (Zhao) Yu
             </p>
             <a id="data"><fieldset><legend>Data</legend></fieldset></a> 
             <p>
-              The primary data source for this visualization is the MIT Commuter Common dataset created by Ira Winder from the Changing Places group at MIT Media Lab. This data is contains demographic and survey data for 2012 from the entire MIT community related to commuting choices and geographic location. Due to data privacy concerns, the data is provided at an aggregated level and is not available at level of individual granularity.
+              The primary data source for this visualization is the MIT Commuter Common dataset created by Ira Winder from the Changing Places group at MIT Media Lab. This data is contains demographic and survey data for 2012 from the entire MIT community related to commuting choices and geographic location. Due to data privacy concerns, the data is provided at an aggregated level and is not available at level of individual granularity. Secondary geographic data overlays source data from Padmapper (for housing rental prices) and Google Maps (for bike and transit map data). 
             </p>
             <a id="guide"><fieldset><legend>Guide</legend></fieldset></a>
             <dl class="dl-horizontal">
-              <dt>Map Overview</dt>
+              <dt>Data Map: MIT affiliates within Massachusetts</dt>
               <dd>The map above shows the state of Massachusetts divided into county areas. The bubble overlay encodes population data - when you hover over a specific commuting method within the stacked area chart, the bubbles are linked to the interaction and will automatically resize proportionally to allow for visual comparison of various MIT commuter populations.</dd>
-              <dt>Demographic Details</dt>
+              <dt>Data Bars: Details by Affiliation and Commute Mode</dt>
               <dd>The bar chart shows the demographic distribution of the population being analyzed. Users may select a specific county area within Massachusetts by clicking on the county of interest to update the bar chart to show the demographic breakdown filtered by a single county. Hover over the bars within the barchar to expose details on demand for one specific demographic group. </dd>
-              <dt>Commuter Modes</dt>
+              <dt>Stacked Area: Commuter Modalities by Distance to MIT Campus</dt>
               <dd>The stacked area chart shows various commuter modes based on distance from campus. Hover over a given commute mode to highlight the corresponding area and update the bubble overlay and show the linkage between geographic distribution and commute mode. When a specific county is highlighted on the Massachusetts map, the relevant distance interval is highlighted on the stacked area chart to highlight the relevant distribution of commute modes.</dd>
             </dl>
             <a id="examples"><fieldset><legend>Demo</legend></fieldset></a>

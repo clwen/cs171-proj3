@@ -164,31 +164,31 @@ var updateHeader = function() {
             $("#ppl").html("MIT undergrads");
             $("#time").html(aggDic["U"].time);
             $("#dist").html(aggDic["U"].dist);
-            $("#funfact").html("The time can be used to solve 126 problem sets if each of them take 3 hours to solve.");
+            $("#funfact").html("This time is equivalent to solving 126 problem sets if each set takes 3 hours to solve.");
         } else if (selectedAff === "G") {
             $("#count").html(aggDic["G"].count);
             $("#ppl").html("MIT grad students");
             $("#time").html(aggDic["G"].time);
             $("#dist").html(aggDic["G"].dist);
-            $("#funfact").html("The time can be used to publish 8 papers if each of them take 100 hours to work on.");
+            $("#funfact").html("This time is equivalent to producing 8 research papers if each paper takes 100 hours write.");
         } else if (selectedAff === "FAC") {
             $("#count").html(aggDic["F"].count);
             $("#ppl").html("MIT faculty members");
             $("#time").html(aggDic["F"].time);
             $("#dist").html(aggDic["F"].dist);
-            $("#funfact").html("The time can be used to offer 306 sessions of courses if each of them is 90 minutes.");
+            $("#funfact").html("This time is equivalent to 306 class sessions if each of class takes 90 minutes.");
         } else if (selectedAff === "ADM") {
             $("#count").html(aggDic["A"].count);
-            $("#ppl").html("MIT administrative staffs");
+            $("#ppl").html("MIT administration members");
             $("#time").html(aggDic["A"].time);
             $("#dist").html(aggDic["A"].dist);
-            $("#funfact").html("The time can be used to read 1505 of reports if each of them requires 60 minutes to read.");
+            $("#funfact").html("In this time, they could read 1505 reports, reading at the rate of 1 report/hr.");
         } else if ((selectedAff === "AS") || (selectedAff === "SS")) {
             $("#count").html(aggDic["AS"].count);
-            $("#ppl").html("MIT staffs");
+            $("#ppl").html("MIT staff");
             $("#time").html(aggDic["AS"].time);
             $("#dist").html(aggDic["AS"].dist);
-            $("#funfact").html("The time can be used to write 2172 of reports if each of them requires 90 minutes to write.");
+            $("#funfact").html("In this time, they could write 2172 reports, writing at the rate of 1 report per 90 mins.");
         } else {
             console.log("there is no affiliation " + selectedAff);
         }

@@ -290,6 +290,7 @@ $(document).ready( function() {
 
     // trigger intro.js
     $(".help-trigger").click(function(e) {
+        resetAll();
         introJs().start();
     });
 });

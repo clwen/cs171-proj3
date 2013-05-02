@@ -127,17 +127,62 @@ var updateHeader = function() {
         console.log(selectedMode);
         if (selectedMode === "WLK") {
             $("#count").html(aggDic["WLK"].count);
-            $("#ppl").html("people choose to walk");
+            $("#ppl").html("MIT members choose to walk");
             $("#time").html(aggDic["WLK"].time);
             $("#dist").html(aggDic["WLK"].dist);
         } else if (selectedMode === "BIC") {
             $("#count").html(aggDic["BIC"].count);
-            $("#ppl").html("people choose to bike");
+            $("#ppl").html("MIT members choose to bike");
             $("#time").html(aggDic["BIC"].time);
             $("#dist").html(aggDic["BIC"].dist);
+        } else if (selectedMode === "T") {
+            $("#count").html(aggDic["T"].count);
+            $("#ppl").html("MIT members take T");
+            $("#time").html(aggDic["T"].time);
+            $("#dist").html(aggDic["T"].dist);
+        } else if (selectedMode === "DRV") {
+            $("#count").html(aggDic["DRV"].count);
+            $("#ppl").html("MIT members who drive");
+            $("#time").html(aggDic["DRV"].time);
+            $("#dist").html(aggDic["DRV"].dist);
+        } else if (selectedMode === "CARPOOL") {
+            $("#count").html(aggDic["CARPOOL"].count);
+            $("#ppl").html("MIT members who use carpool");
+            $("#time").html(aggDic["CARPOOL"].time);
+            $("#dist").html(aggDic["CARPOOL"].dist);
+        } else {
+            console.log("there is no commute mode " + selectedMode);
         }
     } else if (selectedAff !== "all") { // filter according to mode
         console.log("lets show " + selectedAff);
+        if (selectedAff === "U") {
+            $("#count").html(aggDic["U"].count);
+            $("#ppl").html("MIT undergrads");
+            $("#time").html(aggDic["U"].time);
+            $("#dist").html(aggDic["U"].dist);
+        } else if (selectedAff === "G") {
+            $("#count").html(aggDic["G"].count);
+            $("#ppl").html("MIT grad students");
+            $("#time").html(aggDic["G"].time);
+            $("#dist").html(aggDic["G"].dist);
+        } else if (selectedAff === "FAC") {
+            $("#count").html(aggDic["F"].count);
+            $("#ppl").html("MIT faculty members");
+            $("#time").html(aggDic["F"].time);
+            $("#dist").html(aggDic["F"].dist);
+        } else if (selectedAff === "ADM") {
+            $("#count").html(aggDic["A"].count);
+            $("#ppl").html("MIT administrative staffs");
+            $("#time").html(aggDic["A"].time);
+            $("#dist").html(aggDic["A"].dist);
+        } else if (selectedAff === "AS") {
+            $("#count").html(aggDic["AS"].count);
+            $("#ppl").html("MIT academic staffs");
+            $("#time").html(aggDic["AS"].time);
+            $("#dist").html(aggDic["AS"].dist);
+        } else {
+            console.log("there is no affiliation " + selectedAff);
+        }
     } else {
         console.log("both filter applied should not happen...");
     }

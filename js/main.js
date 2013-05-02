@@ -198,6 +198,7 @@ var updateHeader = function() {
 };
 
 var resetAll = function(){
+    $(".well").html("<p>Just in a day, <span id='count'>30</span> <span id='ppl'>MIT Community members</span> spent <span id='time'>10,000</span> minutes traveling a total distance of <span id='dist'>100,000</span> KM. <span id='funfact'>It is almost twice as long as equator.</span></p>");
     if(filtered){
         if(filterType == "Affiliation"){
             highlightAffiliation("CLEAR");
@@ -207,6 +208,8 @@ var resetAll = function(){
         }
     }
     document.getElementById('mapOptions').reset();
+    map.setZoom(12);
+    map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
     showOverlays();
     updateHeader();
 }
@@ -222,8 +225,11 @@ $(document).ready( function() {
         //$('input:radio[name="datatype"][value="percent"]').click();
         filterMap("T", "Mode");
         highlightCommuteMode("T");
+        map.setMapTypeId(google.maps.MapTypeId.TERRAIN);
         $('input:radio[name="stackmode"][value="stacked"]').click();
+        $(".well").html("<p>As an university with an urban campus, many members of the MIT community choose to use public transportation to commute to and from campus.</p>");
     });
+
     $('#story2').click(function() {
         resetAll();
         filterMap("DRV", "Mode");
@@ -231,14 +237,17 @@ $(document).ready( function() {
         $('input:radio[name="mode"][value="transit"]').click();
         $('input:radio[name="stackmode"][value="multiples"]').click();
         showOverlays();
+        $(".well").html("<p>However, there are many people who still drive to campus, even if they live near public transit. These are mostly the faculty, staff and administration.</p>");
     });
+
     $('#story3').click(function() {
         resetAll();
         filterMap("CARPOOL", "Mode");
         highlightCommuteMode("CARPOOL");
+        map.setZoom(10);
         $('input:radio[name="stackmode"][value="multiples"]').click();
+        $(".well").html("<p>Also, across all different affiliations and geographies, very few people carpool.</p>");
     });
-
     
     $('#story4').click(function() {
         resetAll();
@@ -246,15 +255,30 @@ $(document).ready( function() {
         highlightCommuteMode("WLK");
         $('input:radio[name="mode"][value="transit"]').click();
         $('input:radio[name="datatype"][value="percent"]').click();
+        $(".well").html("<p>Despite Cambridge’s very high <a href='http://www.walkscore.com/MA/Cambridge'>walk score</a>, only students living within 5 kilometers of campus tend to choose to commute by walking.</p>");
     });
+
+
     $('#story5').click(function() {
         resetAll();
         filterMap("U", "Affiliation");
         highlightAffiliation("U");
         $('input:radio[name="mode"][value="housing"]').click();
         $('input:radio[name="stackmode"][value="multiples"]').click();
+        map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
         showOverlays();
+        $(".well").html("<p>Undergraduates tend to live near or on-campus, despite high rental prices. They mostly commute by walking, with some students opting to use the T or bike.</p>");
     });
+
+    $('#story6').click(function() {
+        resetAll();
+        filterMap("G", "Affiliation");
+        highlightAffiliation("G");
+        $('input:radio[name="mode"][value="bike"]').click();
+        $('input:radio[name="datatype"][value="percent"]').click();
+        $(".well").html("<p> While graduate students tend to live near campus, and those living further seem to prefer areas with lower rental costs. They are more likely to take public transit, bike, or walk.</p>");
+    });
+
     $('#explore').click(function() {
         resetAll();
     });

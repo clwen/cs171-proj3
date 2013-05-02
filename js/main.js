@@ -212,6 +212,7 @@ var resetAll = function(){
     map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
     showOverlays();
     updateHeader();
+    $("#area").css("visibility","visible");
 }
 
 $(document).ready( function() {
@@ -261,6 +262,7 @@ $(document).ready( function() {
 
     $('#story5').click(function() {
         resetAll();
+        $('input:radio[name="category"][value="AFFILIATION"]').click();
         filterMap("U", "Affiliation");
         highlightAffiliation("U");
         $('input:radio[name="mode"][value="housing"]').click();
@@ -268,14 +270,18 @@ $(document).ready( function() {
         map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
         showOverlays();
         $(".well").html("<p>Undergraduates tend to live near or on-campus, despite high rental prices. They mostly commute by walking, with some students opting to use the T or bike.</p>");
+        $("#area").css("visibility","hidden");
     });
 
     $('#story6').click(function() {
         resetAll();
+        $("#area").css("visibility","hidden");
+        $('input:radio[name="category"][value="AFFILIATION"]').click();
         filterMap("G", "Affiliation");
         highlightAffiliation("G");
         $('input:radio[name="mode"][value="bike"]').click();
-        $('input:radio[name="datatype"][value="percent"]').click();
+        $('input:radio[name="stackmode"][value="stacked"]').click();
+        showOverlays()
         $(".well").html("<p> While graduate students tend to live near campus, and those living further seem to prefer areas with lower rental costs. They are more likely to take public transit, bike, or walk.</p>");
     });
 

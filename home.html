@@ -51,8 +51,8 @@
               <li><a href="#" id="story4">4</a></li>
               <li><a href="#" id="story5">5</a></li>
               <li><a href="#" id="story6">6</a></li>
-              <li><a href="#" id="explore">Explore</a></li>
-              <li><a href="#" id="help" class="help-trigger">?</a></li>
+              <li><a href="#" id="explore" data-intro="Of course you can also choose to explore by yourself" data-step='2'>Explore</a></li>
+              <li><a href="#" id="help" class="help-trigger" data-intro="That's it! You can click here to play this message again." data-step='7'>?</a></li>
             </ul>
             <br>
               <form onclick="filtered = false; showOverlays(); document.getElementById('barmode').reset(); document.getElementById('areamode').reset(); 
@@ -69,7 +69,7 @@
               </form>
           </div><!--/pagination-->
         </div><!--/span3-->
-        <div class = "span8">
+        <div class = "span8" data-intro="Stories and interesting facts will be noted here." data-step='3'>
           <div class="well well-small">
             <p>Just in a day, <span id="count">30</span> <span id="ppl">MIT Community members</span> spent <span id="time">10,000</span> minutes traveling a total distance of <span id="dist">100,000</span> KM. <span id="funfact">It is almost twice as long as equator.</span></p>
           </div>
@@ -77,7 +77,7 @@
       </div><!--/row-->
 
       <div class="row-fluid">
-        <div class="maps span7">
+        <div class="maps span7" data-intro="The map shows the geographical distribution of data points. Will be updated while following stories or interacting with control panels." data-step='4'>
           <div class = "sectiontitle"><b>Data Map: MIT affiliates within Massachusetts - each dot = 5 people</b></div>
           <!-- width="892.6" height="545.8"  -->
           <div>
@@ -100,7 +100,7 @@
         </div><!--/span7-->
 
           <!-- SMALL MULTIPLES BARCHART --> 
-          <div class="span5">
+          <div class="span5" data-intro="Bar charts show the demographic data and commute modes used." data-step='5'>
             <div class = "sectiontitle"><b>Details by Affiliation and Commute Mode</b><br/></div>
             <form id='barmode' class = "pull-left">
               <label class="radio inline">
@@ -128,7 +128,7 @@
 
         <!-- AREA CHART --> 
         <div class="row-fluid">
-          <div class="span12">
+          <div class="span12" data-intro="Stacked area charts show the relation between distance and commute modes used." data-step='6'>
             <div class = "sectiontitle"><b>Commuter Modalities by Distance to MIT Campus</b></div>
             <div id="area-chart"></div>
             <span id="area-legend"></span>

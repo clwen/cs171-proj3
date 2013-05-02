@@ -46,8 +46,6 @@ There are mainly three parts of the visualization: map, bar chart and area chart
     * Use local version under `js`
 * [Bootstrap](http://twitter.github.io/bootstrap/)
     * Use local version under `js` and `css` directories
-* [Underscore](http://underscorejs.org/)
-    * Use local version under `js` directory
 * [intro.js](http://usablica.github.io/intro.js/)
     * Use local version under `js` and `css` directory
 

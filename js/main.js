@@ -170,7 +170,7 @@ var updateHeader = function() {
             $("#ppl").html("MIT grad students");
             $("#time").html(aggDic["G"].time);
             $("#dist").html(aggDic["G"].dist);
-            $("#funfact").html("The time can be used to publish 8 papers if each of them take 100 hours.");
+            $("#funfact").html("The time can be used to publish 8 papers if each of them take 100 hours to work on.");
         } else if (selectedAff === "FAC") {
             $("#count").html(aggDic["F"].count);
             $("#ppl").html("MIT faculty members");

@@ -283,4 +283,8 @@ $(document).ready( function() {
         resetAll();
     });
 
+    // trigger intro.js
+    $(".help-trigger").click(function(e) {
+        introJs().start();
+    });
 });

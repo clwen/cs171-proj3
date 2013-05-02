@@ -18,18 +18,21 @@
 
 There are mainly three parts of the visualization: map, bar chart and area chart.
 
-* Map
-    * County paths defined in `index.html`
-    * Interactions defined in `main.js`
-    * Styles defined in `style.css`
-* Bar chart
-    * Menus and svg defined in `index.html`
-    * Interactions defined in `barchart.js`
-    * Styles defined in `style.css`
-* Area chart
-    * Menus and svg defined in `index.html`
-    * Interactions defined in `area.js`
-    * Styles defined in `area.css`
+* `index.html` serves for the HTML scaffolding and page description
+* Styles for all three views are consolidated in a single `css/style.css`
+* Common variables and interactions defined in `js/main.js`
+* Map interactions are defined in `js/map.js`
+* Bar chart interactions are defined in `js/stacked.js`
+* Stacked area chart interactions are defined in `js/area.js`
+
+---
+
+#### Date files and import methods
+
+* `data/mode_buckets.csv` and `data/aff_buckets.csv` are used to plot the data on the map. They have been uploaded to Google Fusion Table and accessed through the Google Fusion Table API.
+* `data/commutes-by-area-aff.csv` and `data/commutes-by-area-mode.csv` are used in stacked bar chart. They are accessed through `d3.csv` method.
+* `data/dist_grouped.csv` is used in stacked area chart. It is accessed by `d3.csv` method.
+* `data/mit-commuter-data-time.csv` is used to calculate the aggregated distance and time used in the header. It is preprocessed by `aggregate_dist_time.py` to a `JSON` and embodied in `main.js`.
 
 ---
 
@@ -43,24 +46,20 @@ There are mainly three parts of the visualization: map, bar chart and area chart
     * Use local version under `js`
 * [Bootstrap](http://twitter.github.io/bootstrap/)
     * Use local version under `js` and `css` directories
-* [Underscore](http://underscorejs.org/)
-    * Use local version under `js` directory
 * [intro.js](http://usablica.github.io/intro.js/)
     * Use local version under `js` and `css` directory
 
 ---
 
-#### Date files and import methods
-
-`data/mit-commuter-data.csv` is used in the code. It is imported by `d3.csv` method.
-
----
-
-#### Code referenced
+#### Code and example referenced
 
 * [Boston apartment price maps](http://www.jefftk.com/news/2013-01-29)
+    * Author: Jeff Kaufman
 * [Google Maps API tutorial](https://developers.google.com/maps/documentation/javascript/examples/layer-fusiontables-simple)
-
-
+    * Author: Google Inc.
+* [Stacked area chart](http://bl.ocks.org/mbostock/3885211)
+    * Author: Mike Bostock
+* [Stacked-to-Multiples](http://bl.ocks.org/mbostock/4679202)
+    * Author: Mike Bostock
 
 
